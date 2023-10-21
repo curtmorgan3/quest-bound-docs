@@ -12,6 +12,6 @@ phases:
       - npm run build
 artifacts:
   enable-symlinks: yes
-  base-directory: 'dist'
+  base-directory: 'build'
   files:
     - '**/*'
