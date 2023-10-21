@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - npm i @nrwl/nx-linux-x64-gnu && npm install
+  build:
+    on-failure: ABORT
+    commands:
+      - npm run build
+artifacts:
+  enable-symlinks: yes
+  base-directory: 'dist'
+  files:
+    - '**/*'
