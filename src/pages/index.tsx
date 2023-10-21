@@ -11,9 +11,9 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <div className='stack'>
-      <div className='row' style={{ gap: '32px', alignItems: 'center' }}>
+      <div className='row' style={{ gap: '32px', alignItems: 'center', justifyContent: 'center' }}>
         <img alt='Quest Bound' src='/img/QB_monogram.svg' style={{ height: 250, width: 250 }} />
-        <div className='stack'>
+        <div className='stack' style={{ textAlign: 'center' }}>
           <h1>Quest Bound Documentation</h1>
           <h3>Learn how to make your own rules</h3>
         </div>
