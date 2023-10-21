@@ -41,6 +41,10 @@ a {
   text-decoration: underline;
 }
 
+a.button {
+  text-decoration: none;
+}
+
 .menu__link, .navbar__item {
   text-decoration: none;
 }
