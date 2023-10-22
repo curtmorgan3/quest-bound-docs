@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Attributes are the atomic particles of a ruleset. How you represent the characters, items, locations, creatures and abilities of your game will all boil down to what attributes you assign these entities and how they vary.
 
-Attributes are variables, meaning they can change. When a character is introduced in Quest Bound, it will get its own copy of all attributes which have been attached to its assigned archetypes. These attributes can be controlled and changed on that character’s sheet.
+Attributes are variables, meaning they can change. When a character is introduced in Quest Bound, it will get its own copy of attributes. These attributes can be controlled and changed on that character’s sheet.
 
 ## Types of Attributes
 
@@ -45,6 +45,14 @@ In D&D fifth edition, a character has a six core abilities: strength, dexterity,
 
 All of a character’s skill abilities are determined by these six core abilities by first deriving an ability modifier, determining proficiency and adding a bonus if applicable.
 
-To recreate this system in Quest Bound, you’d create six number attributes, (one for each core ability), one number attribute for proficiency bonus, one more for every skill along with a boolean attribute for every skill to determine proficiency. You’d assign all of these attribute to an archetype that can be applied to characters.
+To recreate this system in Quest Bound, you’d create:
+
+- six number attributes, (one for each core ability)
+- one number attribute for proficiency bonus
+- one number attribute for every skill
+- a boolean attribute for every skill to determine proficiency.
+  - _Is a character proficient in this skill? Yes or No_
+
+You’d assign all of these attribute to an archetype that can be applied to characters.
 
 When a character from that archetype is created, it will receive its own copy of each of these attributes. The value of them can be controlled from that character’s sheet.

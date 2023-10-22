@@ -41,11 +41,11 @@ a {
   text-decoration: underline;
 }
 
-a.button {
+a.button, a.card, a.pagination-nav__link {
   text-decoration: none;
 }
 
-.menu__link, .navbar__item {
+.menu__link, .navbar__item, .table-of-contents__link {
   text-decoration: none;
 }
 
@@ -69,4 +69,8 @@ a.button {
   align-items: flex-start;
   gap: 8px;
   padding: 4px;
+}
+
+.thin-scrollbar {
+  position: fixed !important;
 }

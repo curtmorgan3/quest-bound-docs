@@ -12,6 +12,8 @@ Charts may not be edited directly in Quest Bound. Use a program like Excel or Go
 You can upload a new file to an existing chart at any time to update its data.
 :::
 
+![img](./attributes/img/chart-2.png)
+
 ## Referencing Charts
 
 There are two places you’ll likely need to reference chart data: rulebook pages and in [attribute logic](./attributes/logic).
@@ -22,4 +24,4 @@ Rulebook pages can display charts as a table which can easily be formatted.
 
 ![img](./img/rulebook-chart.png)
 
-Chart components will always read directly from the chart, meaning the pages will update automatically as you update the charts in your ruleset. Read more about how this works on the rulebook page.
+Chart components will always read directly from the chart, meaning the pages will update automatically as you update the charts in your ruleset. Read more about how this works on the [rulebook page](./rulebook.md).

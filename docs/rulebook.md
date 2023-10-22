@@ -1,10 +1,10 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Rulebook
 
-The rulebook, as in all tabletop role playing games, is the method by which your game is delivered to your players. It is the primary way they’ll learn and play your game, as well as understand the artistic direction of your universe.
+The rulebook, as in all tabletop role playing games, is the method by which your game is delivered to your players. It is the primary way they’ll learn and play your game, as well as understand its art direction and lore.
 
 While all entities in a Quest Bound ruleset will make your game more interactive for your players, the rulebook is the only requirement to deliver your game to players.
 
@@ -19,6 +19,8 @@ It is Quest Bound’s position that art and exposition cary equal weight in a ru
 With this in mind, writing a page in Quest Bound works differently than in similar applications. Instead of a single panel of rich text, a page is made of _many_ individual rich text windows, called content components. A page can have as many content components as needed. They can be scaled, decorated and arranged individually.
 
 In addition to content components, other components like images, lines and shapes can be added and arranged in the same way. That means instead of adding images to rich text, you’ll place images _on top_ of content, layering and arranging it as needed.
+
+The rulebook editor is similar in functionality to the sheet editor. Learn about how to use the editor [here](./sheet-templates.md).
 
 ## Content
 

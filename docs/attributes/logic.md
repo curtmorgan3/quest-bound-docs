@@ -6,7 +6,8 @@ sidebar_position: 2
 
 As described in [Intro to Attributes](./attributes.md), attributes are variables assigned to entities like characters. Every character has its own copy of attributes which can be controlled from its sheet.
 
-When playing a TTRPG with pen and paper, players are expected to manually update the attributes on their character sheets, erasing and rewriting values as they're updated. Sheets in Quest Bound give the same control to players. For every attribute in your ruleset, you can add a field to a sheet which allows players to manually update the value of that attribute.
+When playing a TTRPG with pen and paper, players are expected to manually update the attributes on their character sheets, erasing and rewriting values as they change.
+Sheets in Quest Bound give the same control to players. For every attribute in your ruleset, you can add a field to a sheet which allows players to manually update the value of that attribute.
 
 ## Derived Values
 
@@ -61,30 +62,32 @@ Below are the types of logic nodes available
 ### Operations
 
 - Set
-  - Applies to result of its output chain to its input (i.e. the default value)
+  - Applies the result of its connected chain to its input (i.e. the default value)
 - Add
-  - Adds its input to its output
+  - Passes the sum of its input and output to the next node in the chain
 - Subtract
-  - Subtracts its output from its input
+  - Passes the difference of its input and output to the next node in the chain
 - Multiply
-  - Multiplies its input and output values
+  - Passes the product of its input and output to the next node in the chain
 - Divide
-  - Divides its input by its output
+  - Passes the quotient of its input and output to the next node in the chain
 - Round
-  - Considers its input.
-  - If its a number with a floating point decimal greater than or equal to 0.5, it will round its output up to the nearest whole number.
-  - If its a number with a floating point decimal less than 0.5, it will round its output down to the nearest whole number.
+  - Considers its input, modifies it with the below rules, then passes it to the next node in the chain
+    - If its a number with a floating point decimal greater than or equal to 0.5, it will round its output up to the nearest whole number.
+    - If its a number with a floating point decimal less than 0.5, it will round its output down to the nearest whole number.
 - Round Up
-  - Rounds its input up to the nearest whole number and provides that as its output
+  - Rounds its input up to the nearest whole number and passes that to the next node in the chain
 - Round Down
-  - Rounds its input down to the nearest whole number and provides that as its output
+  - Rounds its input down to the nearest whole number and passes that to the next node in the chain
 
 ### Comparisons
 
 When comparison nodes are attached to a condition, they will evaluate the nodes in their chain to be either true or false.
 
-:::tip
-When a comparison node is in a chain, the result of that chain will always be either true or false.
+:::info
+Any chain with a comparison node can be considered a comparison chain.
+
+Comparison chains are attached to condition nodes to determine which branch of logic to follow or to chart nodes to filter and select a value.
 :::
 
 - Equal
@@ -112,11 +115,11 @@ When a comparison node is in a chain, the result of that chain will always be ei
   - If the comparison chain resolves to false, it passes its input to the false branch
     ![img](./img/if.png)
 - And
-  - Connects multiple condition chains
+  - Connects multiple comparison chains
   - Resolves to true if **all** connected chains resolve to true
     ![img](./img/and.png)
 - Or
-  - Connects multiple condition chains
+  - Connects multiple comparison chains
   - Resolves to true if **any** connected chain resolves to true
     ![img](./img/or.png)
 
@@ -134,8 +137,14 @@ When a comparison node is in a chain, the result of that chain will always be ei
   - Chart nodes have one input, one output, and two connection points to filter the chart
   - Attach a text node to the column connection point to describe from which _column_ to read the output value
   - Attach a comparison chain to the filter connection point to describe from which _row_ to read the output value
-  - The below chart node can be read like this: “Select from the Features column, reading the row where the value in the Level column is equal to this character’s level.”
-    ![img](./img/chart-1.png)
-  - The node will scan the provided chart, providing the **first** instance where the filter comparison evaluates to true.
-  - If the character’s level is 1, it will provide the text “Rage” as its output
-    ![img](./img/chart-2.png)
+
+:::info
+The below chart node can be read like this: “Select a value from the Features column. Select the row where the value in the Level column is equal to this character’s level.”
+:::
+
+![img](./img/chart-1.png)
+
+- The node will scan the provided chart, providing the **first** instance where the filter comparison evaluates to true.
+- If the character’s level is 3, it will provide the text "Primal Path” as its output
+
+![img](./img/chart-2.png)

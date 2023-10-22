@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # Automating Sheets
 
+## Simple Sheets
+
 Adding logic to an attribute will automate sheets by default. In our [example](./logic.md), Max Health is equal to a character’s vitality multiplied by its level. With these three attributes attached to an archetype, creating a character from that archetype will generate a simple sheet with three fields.
 
 ![img](./img/simple-character.png)
@@ -27,7 +29,7 @@ You can add automated fields to custom sheet templates as well. Input and checkb
 ![img](./img/controls.png)
 
 :::caution
-Make sure the use the right component for the attribute type!
+Make sure to use the right component for the attribute type!
 
 Boolean attributes may only be assigned to checkboxes. Number and text attributes should have the correct corresponding input type.
 :::
