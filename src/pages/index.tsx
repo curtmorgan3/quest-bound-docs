@@ -30,7 +30,7 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   return (
-    <Layout description='Description will go into a meta tag in <head />'>
+    <Layout description='Quest Bound Documentation | Learn how to make your own rules'>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
