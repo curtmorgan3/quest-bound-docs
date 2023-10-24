@@ -76,17 +76,18 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            href: 'https://signup.questbound.com',
+            label: 'Sign Up',
             position: 'left',
-            label: 'Docs',
           },
-          // {to: '/blog', label: 'Dev/Log', position: 'left'},
           {
             href: 'https://questbound.com',
-            label: 'Quest Bound',
-            position: 'right',
+            label: 'Launch',
+            position: 'left',
           },
+
+          // {to: '/blog', label: 'Dev/Log', position: 'left'},
+
         ],
       },
       footer: {
