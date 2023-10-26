@@ -17,23 +17,20 @@ There are two ways to extend the content of a ruleset on your shelf.
 
 When a ruleset is on your shelf in Quest Bound, it means you own a _copy_ of it. With that copy, you can directly make as many edits as you like. At any time, you can remove that ruleset from your shelf and add it again to get a fresh copy free of edits.
 
-Anything you can do to a custom ruleset, you can do to your copy of a ruleset created by someone else. You can create custom sheet templates, edit rulebook pages, adjust the logic of attributes, etc. All of these edits will only
+Anything you can do to a custom ruleset, you can do to your copy of a ruleset on your shelf. You can create custom sheet templates, edit rulebook pages, adjust the logic of attributes, etc. All of these edits will only
 apply to your copy of the ruleset.
 
-### Creating a Module
-
-:::info
-Rulesets must first be [published](./rulesets.md#publishing-rulesets) before they can be shared or have modules created from them.
-:::
-
 As a player of a TTRPG, editing a ruleset directly is probably enough customization to suite your needs. When acting as the game master, however,
-you may want to share custom content you’ve made with your players so they can use _your_ sheet templates, create characters from _your_ archetypes, etc.
+you may want to share custom content you’ve made with your players so they can use _your_ sheet templates, create characters from _your_ archetypes, etc. To
+share your custom content, you’ll need to create a module.
+
+### Creating a Module
 
 Creating a module of a ruleset adds a new copy of it to your shelf with a special module indicator.
 
 ![img](../img/module.png)
 
-Unlike rulesets added to your shelf, modules can be published and shared with other users. Modules can then be added to the ruleset it was created from, applying its custom content to the ruleset on other user's shelves.
+Unlike rulesets added to your shelf, modules can be published and shared with other users. Modules can then be added to the ruleset it was created from, applying its custom content to the ruleset on other users' shelves.
 
 :::caution
 When a module is added to a ruleset, existing content in that ruleset will not be replaced. Only content original to the module will be added.
@@ -42,6 +39,10 @@ That means editing a ruleset’s existing content, like rulebook pages, will not
 :::
 
 ## What can I share?
+
+#### You may only share a ruleset from your shelf if you created it
+
+#### If the ruleset creator allows, you may create and share a module for that ruleset
 
 Whether you can create a module from a ruleset depends on that ruleset's creator. When a ruleset is published, the creator has an option to allow modules to be created for it.
 If the creator allows it, modules may be published and shared just like rulesets.
@@ -55,12 +56,14 @@ must also have a copy of your ruleset on their shelf.
 
 ### Sharing Rulesets Directly
 
-You can alwasy directly share rulesets you've created with other users. When a ruleset has been shared with you, it will appear as an option in the "Add to Shelf" menu.
+You can always directly share rulesets you've created with other users. When a ruleset has been shared with you, it will appear as an option in the "Add to Shelf" menu.
+
+:::tip
+Rulesets must first be [published](./rulesets.md#publishing-rulesets) before they can be shared or have modules created from them.
+:::
 
 ## Generic Modules
 
 Modules don’t need to be created for a specific ruleset. Any ruleset created from scratch can be turned into a generic module.
 
-Generic modules can be added to _any_ ruleset and are a great way to share boilerplate content at the genre level.
-
-For example, you could create a generic module for fantasy games which includes ten character archetypes as well as their attributes. Any ruleset that adds this module will have all its content added to it, including attributes and their logic, which can be referenced in the ruleset’s sheet templates.
+Generic modules can be added to _any_ ruleset and are a great way to share generic content.
