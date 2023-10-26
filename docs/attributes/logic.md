@@ -87,8 +87,10 @@ When comparison nodes are attached to a condition, they will evaluate the nodes 
 :::info
 Any chain with a comparison node can be considered a comparison chain.
 
-Comparison chains are attached to condition nodes to determine which branch of logic to follow or to chart nodes to filter and select a value.
+Comparison chains _always_ resolve to either true or false. This chain includes an equality comparison node. It evaluates if one is equal to one, which is true. The result of this chain is true.
 :::
+
+![img](./img/comparison-chains-eval.png)
 
 - Equal
   - Resolves to true if its input and output are the same value
@@ -134,17 +136,5 @@ Comparison chains are attached to condition nodes to determine which branch of l
 
 - Chart
   - Reads a value from a chart and provides it as output
-  - Chart nodes have one input, one output, and two connection points to filter the chart
-  - Attach a text node to the column connection point to describe from which _column_ to read the output value
-  - Attach a comparison chain to the filter connection point to describe from which _row_ to read the output value
-
-:::info
-The below chart node can be read like this: “Select a value from the Features column. Select the row where the value in the Level column is equal to this character’s level.”
-:::
-
-![img](./img/chart-1.png)
-
-- The node will scan the provided chart, providing the **first** instance where the filter comparison evaluates to true.
-- If the character’s level is 3, it will provide the text "Primal Path” as its output
-
-![img](./img/chart-2.png)
+  - Read more about how this works on the [chart page](../charts).
+    ![img](./img/chart-1.png)

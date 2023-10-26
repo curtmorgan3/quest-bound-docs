@@ -16,12 +16,51 @@ You can upload a new file to an existing chart at any time to update its data.
 
 ## Referencing Charts
 
-There are two places you’ll likely need to reference chart data: rulebook pages and in [attribute logic](./attributes/logic).
-
-In attribute logic, a chart node will allow attributes to scan charts and pull data from a specific cell, applying its value to its logic calculation. Read more about how this works on the [logic page](./attributes/logic#references).
+There are two places you’ll likely need to reference chart data: [rulebook pages](./rulebook.md) and in [attribute logic](./attributes/logic).
 
 Rulebook pages can display charts as a table which can easily be formatted.
 
 ![img](./img/rulebook-chart.png)
 
 Chart components will always read directly from the chart, meaning the pages will update automatically as you update the charts in your ruleset. Read more about how this works on the [rulebook page](./rulebook.md).
+
+### Chart Logic Nodes
+
+In attribute logic, a chart node will allow attributes to scan charts and pull data from a specific cell, applying its value to its logic calculation.
+
+1. Select a chart to scan in the chart node's dropdown menu
+2. Provide the name of the column from which to pull the _value_
+3. Provide a comparison chain to filter the chart's rows
+
+:::info
+The **first** row that passes the comparison chain will be used to provide the value for the chart node.
+:::
+
+In the example below, the chart node scans the selected chart. For every row in the chart, it checks if the value in the level column is equal to this character's level.
+If the level matches, the chart node provides the value of that row's features column.
+
+![img](./attributes/img/chart-1.png)
+
+![img](./attributes/img/chart-3.png)
+
+The value now provided to the output of the chart node is the text "Primal Path".
+
+### Providing Column Names
+
+The chart node has an input connection on the left, then three connection points on the right.
+
+The top connection should be attached to a single text node to provide the name of the column from which to pull the value.
+
+The bottom connection is the output, which provides the result of the scan.
+
+The middle connection should be connected to a [comparison chain](./attributes/logic#comparisons) to provide the method of filtering rows.
+
+:::caution
+The comparison chain must include a text node to provide the name of the column to check!
+
+The first text node in this chain will be used to provide the column name. In the below example, the Level attribute is set based on the character's Experience attribute.
+:::
+
+![img](./img/chart-logic.png)
+
+![img](./img/level-chart.png)
