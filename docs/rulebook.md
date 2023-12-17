@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Rulebook
@@ -7,6 +7,8 @@ sidebar_position: 7
 The rulebook, as in all tabletop role playing games, is the method by which your game is delivered to your players. It is the primary way they’ll learn and play your game, as well as understand its art direction and lore.
 
 While all entities in a Quest Bound ruleset will make your game more interactive for your players, the rulebook is the only requirement to deliver your game to players.
+
+![img](./img/rulebook-page.png)
 
 ## Writing the Rules
 

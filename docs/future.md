@@ -1,15 +1,23 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # What's Next
 
-Quest Bound is still in development. Here are some of the features planned for the future:
+Quest Bound is still in development. Here are some of the features planned for the future.
 
 :::info Want to help shape Quest Bound?
 
 Join our [Discord](https://discord.gg/7QGV4muT39) and let us know what you'd like to see next!
 :::
+
+## Support Quest Bound on Kickstarter
+
+You can support the future of Quest Bound's development by backing us in the upcoming [Kickstarter campaign](https://www.kickstarter.com/projects/quest-bound/quest-bound-tabletop-game-engine).
+
+Backers who pledge at least $50 will have access to Quest Bound for life, including Early Access to the latest features.
+
+![img](./img/roadmap.png)
 
 ## Virtual Tabletop Integration
 

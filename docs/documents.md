@@ -1,0 +1,47 @@
+---
+sidebar_position: 6
+---
+
+# Documents
+
+RPGs often have additional resources beyond the rulebook which serve as references for players during gameplay. You may create documents in your ruleset by uploading PDFs, which
+can then be referenced directly from character sheets.
+
+![img](./img/documents.png)
+
+## Additional References
+
+Any document added to your ruleset will be accessible from a character's homepage by selecting "Documents" from the sidebar.
+
+![img](./img/documents-sidebar.png)
+
+This will populate the table of contents with a selectable list.
+
+![img](./img/reference.png)
+
+## Using a Document in the Rulebook
+
+A single document may be assigned to a ruleset's rulebook. Doing so will allow you to use any page of that document
+as a component in the page editor.
+
+![img](./img/document-component.png)
+
+These components work like all others. They may be styled, scaled and arranged individually. By layering components on top of the
+document component, you can make edits and additions to the page.
+
+![img](./img/customize-pages.png)
+
+## Automatic Rulebook Generation
+
+Quest Bound can create an entire rulebook for you from a document. After assigning a document to a rulebook, an option to create pages
+from that document will appear.
+
+When selected, Quest Bound will create a new rulebook page for each page of the document. These pages will have a single document component, set to
+fill the entire page by default.
+
+![img](./img/create-rulebook.png)
+
+:::info
+Quest Bound will title each generated rulebook page based on the largest text on the page in the PDF. Depending on how the PDF is formatted,
+this might not always make sense. Each page title can be edited after its creation just like normal rulebook pages.
+:::
