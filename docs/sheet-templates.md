@@ -47,6 +47,10 @@ Add a tab by clicking the plus button in the tab bar. Tabs can be reordered by d
 
 ## Sheet Editor Canvas
 
+### Shortcuts and Controls
+
+View the list of keyboard controls [here](./key-bindings).
+
 ### Placing Components
 
 Place a component by dragging it out from the component panel on the left.
@@ -71,6 +75,12 @@ Clicking a single component will select it. Selected components are outlined in 
 Hold shift while clicking to select multiple components. You can also click and drag to select multiple components at once.
 
 When multiple components are selected, there will be an option to group them in the toolbar. Grouped components will be moved and edited together.
+
+### Deleting Components
+
+Selected components may be deleted by using the Backspace or Delete keys. You may also open the context menu of a component by right clicking on it, then selecing the delete option.
+
+You may undo the deletion of components with the undo action.
 
 ### Undo and Redo
 
@@ -127,6 +137,10 @@ Locking a component will prevent it from being moved or edited. Once a component
 
 Locking an image component will prevent the image from being changed by the player during play.
 
+### Conditional Render
+
+All components may be set to [render conditionally](./attributes/automating-sheets#conditional-rendering).
+
 ## Component Types
 
 ### Text
@@ -161,6 +175,8 @@ When creating a character, players will have an option to upload an image. Image
 
 If your sheet needs a background image, apply one from sheet settings instead of using an image component. This will cover the entire sheet and will be easier to manage.
 
+You can inverse the fill of a graph component to move in the opposite direction, giving the appearance of filling instead of draining as an attribute's value increases.
+
 ![img](./img/components/image.png)
 
 :::tip
@@ -192,6 +208,18 @@ A line component starts as a single point that can be placed on the sheet. You c
 Line components have an option to fill the area they enclose, which can be used to create complex shapes.
 
 ![img](./img/components/line.png)
+
+### Graph
+
+Graph components can be used to visually demonstrate the percentage of a given attribute's value over its maximum value. Alternatively, you may assign a separate attribute as the maximum value for the percentage calculation.
+
+Graph components may fill horizontally, vertically or radially. Set the component's background color as the empty color, and font color as the fill.
+
+:::caution
+Graph components _must_ have attributes assigned to them. Without an attribute, a graph component will always display at 10%.
+:::
+
+![img](./img/components/graph.png)
 
 ### Canvas
 
