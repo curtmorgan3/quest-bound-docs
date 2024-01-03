@@ -44,7 +44,7 @@ There are a few key points to understand about the logic editor before wiring up
 ![img](./img/result.png)
 
 4. Mathematical order of operations is not recognized. Operations flow down the chain of connected nodes left to right
-5. Logic always starts with the default value node. If an operation is not connected to default value in some way, it will not be considered in the calculation
+5. Logic connected to the Default Value node update _this_ attribute. Logic connected to [Side Effects](./side-effects) update _other_ attributes.
 
 ## Logic Nodes
 
