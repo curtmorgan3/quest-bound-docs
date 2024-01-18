@@ -16,7 +16,7 @@ You can upload a new file to an existing chart at any time to update its data.
 
 ## Referencing Charts
 
-There are two places you’ll likely need to reference chart data: [rulebook pages](./rulebook.md) and in [attribute logic](./attributes/logic).
+There are two places you’ll likely need to reference chart data: [rulebook pages](./rulebook.md) and in [attribute logic](./logic/logic.md).
 
 Rulebook pages can display charts as a table which can easily be formatted.
 

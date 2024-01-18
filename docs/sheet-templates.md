@@ -164,7 +164,7 @@ Text components can use [text replacement](./attributes/controlling-attributes#t
 
 Provides a field of either text or a number that the player can edit during play.
 
-Input components can be assigned [attributes](./attributes/automating-sheets.md) to give players control over their character's attributes.
+Input components can be assigned [attributes](./attributes/controlling-attributes.md) to give players control over their character's attributes.
 
 Input components can be set to either text or number type. While both types can be used to store numbers, number type inputs will only accept numbers and will respond
 to arrow keys.

@@ -18,7 +18,7 @@ Your character can have as many archetypes as needed. Adding an archetype will a
 
 By default, Quest Bound will create a simple character sheet for each of your characters. This sheet will have a field for every attribute in the character's ruleset.
 
-For any attributes with logic, these fields will be [automated](./attributes/automating-sheets.md).
+For any attributes with logic, these fields will be [automated](./attributes/controlling-attributes.md).
 
 ![img](./attributes/img/simple-character.png)
 
