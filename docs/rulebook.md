@@ -66,30 +66,6 @@ Quest Bound assumes that your ruleset will need a rulebook page for each of its 
 
 You can optionally have Quest Bound automatically create a page from a template every time you create a new archetype. Control these options in ruleset settings.
 
-## Variables
-
-Rulebook pages can replace text particularily formatted with values pulled from your ruleset. To use variables, assign an archetype to a rulebook page. This is done automatically if Quest Bound created the page for a new archetype.
-
-![img](./img/assign-archetype.png)
-
-If a page has an assigned archetype, you can use variables to automatically insert that archetype’s name, description, image or default attribute values.
-
-On image components, select this option to use the archetype’s image (assigned from the archetype page).
-
-![img](./img/use-archetype-image.png)
-
-A similar option exists on content components to inject an archetype’s description.
-
-![img](./img/use-description-image.png)
-
-Finally, any text component or content component will replace any text wrapped in `{{ }}` with the value of a property matching that text.
-
-For example, the text `{{name}}` in a content component will be replaced with the archetype’s name. The text `{{Max Health}}` will be replaced with the default value of that archetype’s Max Health attribute.
-
-:::caution
-Text variables must be typed exactly as the name of that property, with no space between the brackets and the name. If an attribute can’t be found for the assigned archetype, the text will not be replaced. These variables are not case sensitive.
-:::
-
 ## Arranging Pages
 
 The pages are your rulebook can be moved at any time by dragging the title of the page within the table of contents.

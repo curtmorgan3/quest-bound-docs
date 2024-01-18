@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Intro to Attributes
+# Attributes
 
 Attributes are the atomic particles of a ruleset. How you represent the characters, items, locations, creatures and abilities of your game will all boil down to what attributes you assign these entities and how they vary.
 
@@ -22,9 +22,11 @@ There are three types of attributes:
   - A value that is always exactly one of two possible states
   - True or False, Yes or No, On or Off, etc
 
+The type of attribute dictates what sort of automations it can have.
+
 ## What should be an Attribute?
 
-If the answer to any of these questions is yes, it should probably be an attribute.
+If the answer to any of these questions is yes, it should probably be an attribute. It is not uncommon for a rulest to have hundreds of attributes.
 
 - Does this value change while my game is being played?
 - Is this value potentially different for every character or creature that has it?
@@ -34,9 +36,9 @@ If the answer to any of these questions is yes, it should probably be an attribu
 Keep in mind that it’s perfectly fine to explain mechanics of your game in your rulebook and not create attributes for them.
 
 :::tip
-If you want Quest Bound to automate sheets and generate rulebook pages with certain values, you need to make attributes.
+If you want Quest Bound to automate sheets and generate rulebook pages with certain values, you _must_ make those values attributes.
 
-If you expect players to manually calculate and track these values, you don’t need to create attributes.
+If you expect players to manually calculate and track these values, making them attributes is optional.
 :::
 
 ## Case Study: The D&D Skill System

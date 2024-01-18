@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Simplifying Logic
@@ -14,7 +14,7 @@ It may be tempting to add logic to every attribute, but too much automation can 
 Remember that your players know they're playing a tabletop game, not a video game. They expect to need to read your rules and do some calculations themselves. In fact, that's
 part of the fun of playing a tabletop game!
 
-The best candidates for automation are attributes that are always derived from one or a few other attributes.
+The best candidates for automation are attributes that are always derived from one or a few other attributes. Attributes that read data from charts are especially handy, since it can keep your players from constantly needing to reference the rulebook.
 
 ## Make extra attributes when needed
 
@@ -50,7 +50,7 @@ to true if their health is less than or equal to 0, or false if it's greater tha
 
 ![img](./img/simplify-one.png)
 
-This works perfectly fine, but there's a simpler approach. Remember that [comparison chains](./logic#comparisons) always resolve to true or false. Instead of
+This works perfectly fine, but there's a simpler approach. Remember that [comparison statements](./logic.md#comparisons) always resolve to true or false. Instead of
 using a condition, you can assign the result of the comparison directly to the death attribute.
 
 ![img](./img/simplify-two.png)

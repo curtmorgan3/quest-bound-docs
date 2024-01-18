@@ -139,7 +139,14 @@ Locking an image component will prevent the image from being changed by the play
 
 ### Conditional Render
 
-All components may be set to [render conditionally](./attributes/automating-sheets#conditional-rendering).
+Any component may be set to rendner _only if_ a given boolean attribute is true or false. By layering components, you can set up complex, dynamic sheets
+which change based on the state of the character.
+
+![img](./logic/img/conditional.png)
+
+![img](./logic/img/conditional-1.png)
+
+![img](./logic/img/conditional-2.png)
 
 ## Component Types
 
@@ -149,7 +156,7 @@ Static text to be displayed on the sheet. Text components represent text that is
 
 Headers, labels, short descriptions and branding are all good candidates for text components.
 
-Text components can use [variables](./rulebook#variables) to read values from the character, such as name and attribute values.
+Text components can use [text replacement](./attributes/controlling-attributes#text-replacement) to read values from the character, such as name and attribute values.
 
 ![img](./img/components/text.png)
 
@@ -168,14 +175,9 @@ to arrow keys.
 
 Displays an image on the sheet. Images may be added to your gallery by uploading or setting the url of a hosted image. Image components which display a gif will be animated.
 
-Image components can be either static or dynamic. Static images are intended to be the same for every player who uses the sheet, while dynamic images can be changed by the player during play.
-Background images or logos would be static, while a character portrait would be dynamic. To make an image component static, simply lock it after the image has been set.
-
 When creating a character, players will have an option to upload an image. Image components can reference a character's image by default by selecting the option in the image component's toolbar.
 
 If your sheet needs a background image, apply one from sheet settings instead of using an image component. This will cover the entire sheet and will be easier to manage.
-
-You can inverse the fill of a graph component to move in the opposite direction, giving the appearance of filling instead of draining as an attribute's value increases.
 
 ![img](./img/components/image.png)
 
@@ -189,7 +191,7 @@ Images may be layered among other components with varying color and opacity to a
 
 Provides an input for players to toggle on and off.
 
-Checkbox components can be assigned [attributes](./attributes/automating-sheets.md) to give players control over their character's [boolean type attributes](./attributes#types-of-attributes).
+Checkbox components can be assigned [attributes](./attributes/controlling-attributes) to give players control over their character's [boolean type attributes](./attributes#types-of-attributes).
 
 Checkboxes have two default styles, but you can also set any two images to represent the checked and unchecked states.
 
@@ -214,6 +216,8 @@ Line components have an option to fill the area they enclose, which can be used 
 Graph components can be used to visually demonstrate the percentage of a given attribute's value over its maximum value. Alternatively, you may assign a separate attribute as the maximum value for the percentage calculation.
 
 Graph components may fill horizontally, vertically or radially. Set the component's background color as the empty color, and font color as the fill.
+
+You can inverse the fill of a graph component to move in the opposite direction, giving the appearance of filling instead of draining as an attribute's value increases.
 
 :::caution
 Graph components _must_ have attributes assigned to them. Without an attribute, a graph component will always display at 10%.
