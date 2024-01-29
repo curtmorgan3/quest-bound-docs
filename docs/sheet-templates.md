@@ -199,15 +199,13 @@ Checkboxes have two default styles, but you can also set any two images to repre
 
 ### Shape
 
-Shapes offer a simple component to add visual distinction to areas of your sheets. They are useful for applying background colors and containers.
+Shapes are a simple component to add visual distinction to areas of your sheets. They are useful for applying background colors and containers.
 
 ![img](./img/components/shape.png)
 
 ### Line
 
 A line component starts as a single point that can be placed on the sheet. You can add additional points to created a segmented line, which can then be arranged into borders.
-
-Line components have an option to fill the area they enclose, which can be used to create complex shapes.
 
 ![img](./img/components/line.png)
 
