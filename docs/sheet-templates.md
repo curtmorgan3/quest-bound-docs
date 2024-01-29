@@ -211,6 +211,19 @@ Line components have an option to fill the area they enclose, which can be used 
 
 ![img](./img/components/line.png)
 
+### Polygons
+
+You can make polygons with either the Shape or Line components.
+
+By changing the number of sides in the Shape component, you can make regular polygons. Note that these
+polygons will always have sides of equal length determined by the width of the component.
+
+![img](./img/components/polygon-shape.png)
+
+The line component can support irregular polygons by selecting the fill shape option. Each line component will dictate a vertex in the polygon, making the length of each side fully adjustable.
+
+![img](./img/components/polygon-line.png)
+
 ### Graph
 
 Graph components can be used to visually demonstrate the percentage of a given attribute's value over its maximum value. Alternatively, you may assign a separate attribute as the maximum value for the percentage calculation.
