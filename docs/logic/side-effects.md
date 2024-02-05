@@ -111,5 +111,3 @@ Finally, you may be tempted to substitue a Side Effect for an Action.
 For example, you could create a controlled boolean attribute called Long Rest, which has a Side Effect of restoring a character's Hit Points when changed.
 At a glance, this works, but it isn't the intended use. Mechanics that happen instantly (like the click of a button) should be Actions, while alterations that affect attributes while some condition is true (like a temporary status)
 should be Side Effects.
-
-_Note that actions are not available in Quest Bound just yet_

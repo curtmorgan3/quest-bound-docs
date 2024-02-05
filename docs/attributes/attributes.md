@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Attributes
 
-Attributes are the atomic particles of a ruleset. How you represent the characters, items, locations, creatures and abilities of your game will all boil down to what attributes you assign these entities and how they vary.
+Attributes are the atomic particles of a ruleset. How you describe the characters, items, locations, creatures and abilities of your game will all boil down to what attributes you assign these entities and how they vary.
 
 Attributes are variables, meaning they can change. When a character is introduced in Quest Bound, it will get its own copy of attributes. These attributes can be controlled and changed on that character’s sheet.
 
@@ -12,7 +12,9 @@ Attributes are variables, meaning they can change. When a character is introduce
 
 Every attribute must include a type and a default value.
 
-There are three types of attributes:
+There are four types of attributes:
+
+Primitives
 
 - Number
   - Any negative or positive number, including decimal point floats and integers
@@ -22,7 +24,9 @@ There are three types of attributes:
   - A value that is always exactly one of two possible states
   - True or False, Yes or No, On or Off, etc
 
-The type of attribute dictates what sort of automations it can have.
+Actions
+
+- Actions behave differently than the primitives types. Learn about actions [here](../logic/actions.md).
 
 ## What should be an Attribute?
 

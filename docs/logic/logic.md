@@ -81,6 +81,20 @@ Primitives are the most basic piece of data within logic. They are _static_, mea
 - Boolean
   - Provides a boolean value, true or false
 
+### Dice
+
+The dice node can be used to hold the value of rolled dice. Dice nodes have a special 'dice select' output, which can be attached to its own statement. The dice select statment should resolve to text in the format of `1d6`, where 1 is the number of dice and 6 is the number of sides.
+
+You can add text from multiple nodes, including charts and attributes, to build the dice select statement.
+
+Because dice nodes result in a number, they may be treated the same as number primitives.
+
+:::warning
+Dice nodes produce random numbers every time logic is evaluated. This is usually not desired for derived attributes.
+
+Most of the time you use dice nodes will be within actions.
+:::
+
 ### Operations
 
 Operations are basic math applied to one or two attributes.
@@ -157,6 +171,18 @@ Single boolean nodes and attributes can be considered comparison statements beca
   - Connects multiple comparison statements
   - Resolves to true if **any** connected statment resolves to true
     ![img](./img/or.png)
+
+### Variables
+
+In primitive attributes, variable nodes can be used to hold local values that can be referenced within that attribute's logic only. This can be useful if you need to
+calculate a value within an attribute's logic and use it multiple times.
+
+Variable nodes have a text field for naming the variable and an output to connect to a statement. The value of that statement will be referenced in any text nodes that
+hold the variable name.
+
+![img](./img/variable-node.png)
+
+They are also used to [provide parameters to actions](./actions).
 
 ### References
 
