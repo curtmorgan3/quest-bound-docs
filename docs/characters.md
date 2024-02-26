@@ -28,3 +28,9 @@ character's sheet.
 ![img](./img/sheet-editor.png)
 
 You can replace a character's sheet by selecting a new template at any time. Any edits you made to the previous sheet will be lost. The character's attributes will remain unchanged.
+
+## Character Journals
+
+Every character is created with a journal. A journal is a way for players to use the Page Editor to keep track of their character's adventure.
+
+Journal pages may be arranged just like a rulebook by dragging the page titles into a hierarchy. Pages may link to each other and include all of the same components used when creating the rulebook.

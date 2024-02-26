@@ -7,9 +7,9 @@ sidebar_position: 5
 Charts are two dimensional data sets made of columns and rows, like a spreadsheet. Charts provide a method of storing and referencing the large amounts of data that generally make up TTRPGs.
 
 :::caution
-Charts may not be edited directly in Quest Bound. Use a program like Excel or Google Sheets to create your data, then upload it to a chart as a .csv file.
+Charts have limited editing capabilities in Quest Bound. Use a program like Excel or Google Sheets to create your data, then upload it to a chart as a .csv file.
 
-You can upload a new file to an existing chart at any time to update its data.
+You can edit individual cell values in Quest Bound, or you can upload a new file to an existing chart at any time to update its data.
 :::
 
 ![img](./attributes/img/chart-2.png)

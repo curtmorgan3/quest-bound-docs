@@ -27,7 +27,7 @@ Access a sheet's settings from the settings menu under the sheet's title.
 
 You can add a default font to your sheet, which will be used for all text components.
 
-Add up to tweleve colors to a sheet's palette. All color pickers will show swatches of its palette for easy selection.
+Add up to twelve colors to a sheet's palette. All color pickers will show swatches of its palette for easy selection.
 
 Set a background image and opacity to your sheet to cover the entire sheet. This is useful for adding a background texture or pattern.
 
