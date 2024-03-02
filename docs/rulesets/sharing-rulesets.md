@@ -24,6 +24,6 @@ When publishing a ruleset, you decide if other users can create modules from it.
 
 ## Marketplace
 
-_Coming late 2024_
+_Coming 2025_
 
 Published rulesets and published modules may be sold on the marketplace.
