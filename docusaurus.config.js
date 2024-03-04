@@ -126,6 +126,10 @@ const config = {
                 label: 'Sign Up',
                 href: 'https://signup.questbound.com',
               },
+              {
+                label: 'Contact Support',
+                href: 'mailto:support@questbound.com',
+              },
             ],
           },
         ],
