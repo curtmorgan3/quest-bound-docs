@@ -187,6 +187,22 @@ While it is possible to achieve minimally designed sheets using only the native 
 Images may be layered among other components with varying color and opacity to achieve complex designs.
 :::
 
+### Frame
+
+Frame components let you embed external websites directly into your character sheets and rulebook pages. Add a url and lock this component to display the external site.
+
+Frame components render an [iframe](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe), giving this component its own browser context. Because of this, some click events within the component might be blocked while it's active.
+
+Note that browser local storage is shared. If you embed a site that uses local storage, those values will be stored within Quest Bound for later use.
+
+Not all websites allow for this kind of rendering. If a site does not provide the proper `X-Frame-Options` header, it will not work within a frame component.
+
+![img](./img/components/frame.png)
+
+:::caution
+Every time a character sheet or rulebook page is displayed, frame components will start a new browser context. This means certain features, like streaming sheets, might not work as expected.
+:::
+
 ### Checkbox
 
 Provides an input for players to toggle on and off.
