@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Automating Your Ruleset with Logic
+# Logic And Nodes
 
-Mechanics of your game can be captured within Quest Bound as logic, then used to automate character sheets. Logic is added to attributes with the Logic Editor. To edit an attribute's logic, select the attribute and click the logic button to open this editor.
+Mechanics of your game can be captured within Quest Bound as logic, then used to automate character sheets or the creation of rulebook pages. Logic is added to attributes with the Logic Editor. To edit an attribute's logic, select the logic button in the attribute chart.
 
 ![img](./img/logic-editor.png)
 
@@ -16,7 +16,7 @@ When playing a TTRPG with pen and paper, players are expected to manually update
 
 Sheets in Quest Bound give the same control to players. For every attribute in your ruleset, you can [add a field](../attributes/controlling-attributes) to a sheet which allows players to manually update the value of that attribute.
 
-Controlled attributes do not need logic.
+Controlled attributes do not need logic, but may still benefit from it. For example, you can use logic to clamp an attribute's value between a minimum and maximum while still allowing players to control it.
 
 ## Derived Values
 
@@ -29,7 +29,7 @@ In this example, Level and Vitality are controlled by the player based on the ru
 You can build this automation directly into the Max Health attribute using its logic.
 
 :::caution
-Logic can quickly become complex! For best results, keep it simple and only add logic when automation will greatly benefit your players. Remember, we’re making tabletop games, not video games.
+Logic can quickly become complex! For best results, keep it simple and only add logic when automation will greatly benefit your players. Remember that we’re making tabletop games, not video games.
 :::
 
 ## Visual Programming
@@ -42,31 +42,19 @@ If you’re new to programming concepts, logic can feel overwhelming. Keeping it
 Add a Quest Bound official ruleset to your shelf and check out the logic of several components to get an idea of how it works.
 :::
 
-## Statements
-
-A statement is a fragment of logic that evaluates and produces a result independently. Starting with any node, connecting other nodes will add them to its statement. A statement can be as small as a single number or as complex as several operations.
-
-Conditions will branch logic between statements, stitching appropriate statements together to form the complete logic.
-
-To see statements and their results within the logic editor, toggle statement mode using the button in the top right. An overlay will appear over each statement and their results will be displayed on the top left of each.
-
-![img](./img/statement-mode.png)
-
 ## Key Points
 
 There are a few key points to understand about the logic editor before wiring up your first attribute.
 
-1. Every logic node takes an input and produces an output
+1. Logic is built by adding and connecting _nodes_
 
-- _the exceptions are Default Value and Side Effect, which do not take an input_
+2. Every node conducts a specific operation. Most nodes provide the result of that operation as their output
 
-2. Outputs are passed down a statement of connected nodes, with operations applied to the accumulated value
-3. The last node in a statement provides the result of that statement
+3. Return nodes are used to eject their result outside the current logic, either by assigning it as the attribute's value (primitive attributes), or providing it to other logic (actions)
 
-![img](./img/result.png)
+4. Mathematical order of operations is not recognized
 
-4. Mathematical order of operations is not recognized. Operations move down statments left to right
-5. Operations connected to the Default Value node update _this_ attribute. Operations connected to [Side Effects](./side-effects) update _other_ attributes.
+5. When the order of nodes matters, nodes placed vertically higher will be considered first
 
 ## Logic Nodes
 
@@ -80,6 +68,22 @@ Primitives are the most basic piece of data within logic. They are _static_, mea
   - Provides a word or string of words
 - Boolean
   - Provides a boolean value, true or false
+
+![primitive nodes](./img/primitive-nodes.png)
+
+### Attribute
+
+Attribute nodes, like primitives, provide either a number, text or boolean value. These nodes supply the value of _other_ attributes.
+
+When logic has an attribute node, it will recalculate its value every time that attribute changes.
+
+You can use the test field within an attribute node to see how your logic operates under different attribute values. This field is only used within the logic editor.
+
+![attribute node](./img/attribute-node.png)
+
+Primitive nodes can be promoted to attributes directly from the logic editor.
+
+![promote-to-attribute](./img/promote-to-attribute.png)
 
 ### Dice
 
@@ -99,101 +103,124 @@ Most of the time you use dice nodes will be within actions.
 
 Operations are basic math applied to one or two attributes.
 
-The four basic math operations (add, subtract, multiply and divide), perform their operations on the input _and_ output nodes, passing the result through its output.
+The four basic math operations (add, subtract, multiply and divide), perform their operations on all of their inputs, passing the result through its output.
 
-Set acts like a break in logic, ignoring the running value of the statement provided to its input. Set lets you interrupt operations to its left, meaning the value of its output connection will continue down the statement.
-
-Rounding operations consider their input, passing the rounded value to its output.
+Rounding operations consider their input, passing the rounded value to its output. Round up will always transform its input to the next higher integer, round down the next lowest and round whichever is closer.
 
 ![img](./img/math-operation.png)
 
-- Set
-  - Passes its output value, regardless of its input
-- Add
-  - Passes the sum of its input and output to the next node in the statement
-  - When using Add with two text components, it will combine the text
-- Subtract
-  - Passes the difference of its input and output to the next node in the statement
-- Multiply
-  - Passes the product of its input and output to the next node in the statement
-- Divide
-  - Passes the quotient of its input and output to the next node in the statement
-- Round
-  - Considers its input, modifies it with the below rules, then passes it to the next node in the statement
-    - If its a number with a floating point decimal greater than or equal to 0.5, it will round its output up to the nearest whole number.
-    - If its a number with a floating point decimal less than 0.5, it will round its output down to the nearest whole number.
-- Round Up
-  - Rounds its input up to the nearest whole number and passes that to the next node in the statement
-- Round Down
-  - Rounds its input down to the nearest whole number and passes that to the next node in the statement
+Math operations may be swapped to other operations after being placed by clicking their icon.
 
 ### Comparisons
 
-Comparison nodes consider their input and output and pass a boolean value to their output node. The result of a comparison is always either true or false.
+Comparison nodes consider their input and pass a boolean value to their output. The result of a comparison is always either true or false.
 
-Statements that contain a comparison node can be considered a comparison statement. These statements will always resolve to a boolean. Comparison statements can be attached to conditions to branch logic or to chart nodes to filter chart rows.
-
-![img](./img/comparison-chains-eval.png)
+![img](./img/comparison-nodes.png)
 
 :::tip
-Single boolean nodes and attributes can be considered comparison statements because they resolve to either true or false
+Comparison nodes and boolean nodes can often be used interchangeably because they both always output a boolean.
 :::
 
 - Equal
-  - Resolves to true if its input and output are the same value
+  - Resolves to true if its inputs are the same value
 - Not Equal
-  - Resolves to true if its input and output are not the same value
+  - Resolves to true if its inputs are not the same value
 - Greater Than
-  - Resolves to true if its input is greater than its output
+  - Resolves to true if A is greater than B
   - _This only works for number types_
 - Less Than
-  - Resolves to true if its input is less than its output
+  - Resolves to true if A is less than B
   - _This only works for number types_
 - Greater Than or Equal
-  - Resolves to true if its input is greater than or equal to its output
+  - Resolves to true if A is greater than or equal to B
   - _This only works for number types_
 - Less Than or Equal
-  - Resolves to true if its input is less than or equal to its output
+  - Resolves to true if A is less than or equal to B
   - _This only works for number types_
+
+#### Comparing Booleans
+
+To compare boolean values, you need boolean alegebra operators: AND, OR and NOT.
+
+- AND
+  - Connects multiple booleans
+  - Resolves to true if **all** connected statements resolve to true
+    ![img](./img/and.png)
+- OR
+  - Connects multiple booleans
+  - Resolves to true if **any** connected statment resolves to true
+    ![img](./img/or.png)
+- NOT
+
+  - Resolves to the opposite of its input
+
+  ![img](./img/not.png)
 
 ### Conditions
 
 - If
-  - Splits logic into two possible branches based on the result of a comparison statement
-  - If the comparison resolves to true, it passes its input to the true branch
-  - If the comparison resolves to false, it passes its input to the false branch
+  - Splits logic into two possible branches based on a boolean value
+  - If true, it passes its input to the true branch
+  - If false, it passes its input to the false branch
     ![img](./img/if.png)
-- And
-  - Connects multiple comparison statements
-  - Resolves to true if **all** connected statements resolve to true
-    ![img](./img/and.png)
-- Or
-  - Connects multiple comparison statements
-  - Resolves to true if **any** connected statment resolves to true
-    ![img](./img/or.png)
+
+Notice that the add node on the false branch has a value of 5 instead of 15. This is because the if node did not pass its input, given that the connected boolean was true.
+
+#### Conditions without Inputs
+
+Some nodes, like return and side effect, have a special input that controls their execution. When nothing is connected, these nodes will always excute, but when a connection is made,
+only a true value will let them execute.
+
+By connecting if nodes to these inputs, you can control when a value is returned or when a side effect is executed via branching logic.
 
 ### Variables
 
 In primitive attributes, variable nodes can be used to hold local values that can be referenced within that attribute's logic only. This can be useful if you need to
 calculate a value within an attribute's logic and use it multiple times.
 
-Variable nodes have a text field for naming the variable and an output to connect to a statement. The value of that statement will be referenced in any text nodes that
-hold the variable name.
+Variable nodes have a text field for naming the variable and an output to connect to a statement. Variable nodes without inputs will take the value of the first other variable it finds with its name.
 
 ![img](./img/variable-node.png)
 
-They are also used to [provide parameters to actions](./actions).
+Variable nodes are also used to [provide parameters to actions](./actions).
 
-### References
+![img](./img/parameter.png)
 
-- Attribute
+### Chart
 
-  - Reads the default value of another attribute and provides it to its output
-  - Inserts a field in the test panel to change the value of the attribute for testing
-  - On a sheet, this will take the value of that entity’s (character, creature, etc) attribute, not the default value
-    ![img](../attributes/img/attribute.png)
+The chart node can read a chart and return the value of a single cell.
 
-- Chart
-  - Reads a value from a chart and provides it as output
-  - Read more about how this works on the [chart page](../charts).
-    ![img](./img/chart.png)
+Chart nodes connect to a comparison. It will scan every row of the chart, returning the value of the selected column for the first row that passing the comparison.
+
+Read more about how this works on the [chart page](../charts).
+
+![img](./img/chart.png)
+
+### Default Value
+
+The default value node provides a way to control the default value of the attribute. Note that it may also be controlled from the attribute chart.
+
+This node will also output the attribute's current default value and provide inputs for clamping the attribute to a minimum and maximum value.
+
+![img](./img/default-value.png)
+
+### Return
+
+Return nodes store the ultimate resolution of the logic, if there is one. In primitive attributes, the first return node to execute will set the derived value of that attribute.
+
+![img](./img/return.png)
+
+In actions, return nodes provide the result of the action in _other_ attributes.
+
+### Comment
+
+Comments are notes left within logic to help with explaining or remembering it. They don't affect the execution of the logic whatsoever.
+
+![img](./img/comment.png)
+
+### Announce
+
+Announce nodes will create in-app notifications to alert your players to some event. The notification will have the text content provided to its input and will only appear
+if the connected condition is true.
+
+![img](./img/announce.png)

@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Docs | Quest Bound',
+  title: 'Quest Bound Docs',
   tagline: 'Make your own rules',
   favicon: 'img/QB_monogram.svg',
 

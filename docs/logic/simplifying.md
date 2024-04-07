@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Simplifying Logic
@@ -48,9 +48,9 @@ Some attributes can exist simply to hold variables and make logic easier to work
 Conditions are nodes that separate your logic into multiple branches. Consider the following example, which flips a character's death attribute
 to true if their health is less than or equal to 0, or false if it's greater than 0.
 
-![img](./img/simplify-one.png)
+![img](./img/simplify-1.png)
 
 This works perfectly fine, but there's a simpler approach. Remember that [comparison statements](./logic.md#comparisons) always resolve to true or false. Instead of
 using a condition, you can assign the result of the comparison directly to the death attribute.
 
-![img](./img/simplify-two.png)
+![img](./img/simplify-2.png)
