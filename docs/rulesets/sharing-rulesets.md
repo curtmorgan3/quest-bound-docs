@@ -2,28 +2,26 @@
 sidebar_position: 3
 ---
 
-# Sharing Rulesets
+# Distributing Rulesets
 
 After creating a ruleset in Quest Bound, you'll likely want to do a few things with it.
 
-## Adding Play Testers
+## Adding Players
 
-You can add up to five play testers to your ruleset. Play testers will be able to create a character, allowing them to view the rulebook, documents and charts as well as use any of the attached sheet templates. They will also be able to edit their character sheet using the sheet editor, giving them access to your ruleset's attributes and automations.
+You can add players to any of your custom rulesets. Players will be able to create a character, allowing them to view the rulebook, documents and charts as well as use any of the attached sheet templates. They will also be able to edit their character sheet using the sheet editor, giving them access to your ruleset's attributes and automations.
 
-Play testers will not need a paid version of Quest Bound to use these features. Creating characters from rulesets will always be a free feature.
+## Publishing
 
-_Note that the free version of Quest Bound will not be available until after the Early Access period._
+Any content you create may be published.
 
-## Publishing and Sharing
+Once a ruleset has been published, you will receive a link to its marketplace page. Published rulesets are versioned, so you can continue to build your ruleset after it's been published without affecting the available copy. You may sync the working copy
+with the published version at any time.
 
-You can publish your ruleset in order to share it with individual users. Publishing a ruleset requires a manual approval process where you submit evidence, when appropriate, of intellectual property ownership.
+![img](../img/publish.png)
 
-Once a ruleset has been published, it can be shared directly with any number of users. Published rulesets are versioned, so you can continue to build your ruleset after it's been published without affecting the available copy.
+A few options are available to let your customers know the following:
 
-When publishing a ruleset, you decide if other users can create modules from it. Modules can be independently published, but they may not be used independently of their original ruleset. Any user who has access to a module made from your published ruleset must also have access to that ruleset.
-
-## Marketplace
-
-_Coming 2025_
-
-Published rulesets and published modules may be sold on the marketplace.
+- If they can create and publish modules for this ruleset
+- If any of its content used generative AI
+- If it comes with a PDF version of the rulebook (available via its documents)
+- If it contains explicit content

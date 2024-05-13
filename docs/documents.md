@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # Documents
@@ -18,6 +18,13 @@ Any document added to your ruleset will be accessible from a character's homepag
 This will populate the table of contents with a selectable list.
 
 ![img](./img/reference.png)
+
+:::tip
+It is highly recommended that you include a PDF version of the rulebook in any ruleset you publish. Players are more likely to purchase content in
+digital formats if it is sold alongside a downloadable file.
+
+Published rulesets which include a PDF rulebook are marked with a special indicator on their marketplace pages.
+:::
 
 ## Using a Document in the Rulebook
 

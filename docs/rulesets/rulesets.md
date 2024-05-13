@@ -2,39 +2,41 @@
 sidebar_position: 1
 ---
 
-# Your Shelf
-
-Imagine walking into your favorite gaming store with shelves of tabletop RPGs along the walls. You walk down the aisles until one catches your eye. After a quick skim through the first few pages, you buy the copy, take it home and place it on your shelf.
-
-When you log into Quest Bound, you’ll see a list of all the rulesets you’ve created, purchased or which have been directly shared with you. **This is your shelf** and you can think of it exactly like the one you have at home.
-
-You can browse your shelf, thumbing through all of your ruleset copies, but eventually you select one and open it. Once a ruleset is opened in Quest Bound, _everything_ you see is viewed within the context of that ruleset. It is the universe of a game and there can never be more than one open at a time.
-
-:::info Your copy belongs to you
-Just like buying a ruleset from the store and bringing it home, you’re free to do what you’d like with any ruleset on your shelf. Edit the pages, add archetypes, change the rules, redesign the sheet templates—changes you make to your ruleset will only be visible to you.
-
-Read about [modules](./modules.md) to understand how to customize and extend rulesets on your shelf.
-:::
-
-### Ruleset Entities
+# Rulesets
 
 Rulesets are collections of several other entities. By themselves, rulesets don’t do much. Their purpose is to bind these entities into a package that you can share with others.
+
+Once a ruleset is opened in Quest Bound, _everything_ you see is viewed within the context of that ruleset. It is the universe of a game and there can never be more than one open at a time.
+
+## Ruleset Entities
 
 A ruleset is made of the following:
 
 - [Attributes](../attributes/attributes.md)
   - The atoms of a ruleset. These are the variables that attach to all other entities
   - Stats like hit points, age, durability, skill and experience can all be represented as attributes
-  - Can hold logic to automatically derive their value from other attributes
+  - Attributes can affect and be affected by other ruleset entities through logic
+- [Items](../attributes/attributes.md)
+  - Objects that may be added and removed from character inventories
+  - Items are built on top of attributes, may hold properties and abilities and use logic to affect other entities
 - [Archetypes](../archetypes.md)
   - Collections of attributes which can have variations specific to the archetype
   - The “category” of your ruleset's characters and creatures
 - [Charts](../charts.md)
-  - Data sets of tabular structure, like a spreadsheet
+  - Data sets of tabular structure, like a spreadsheet, uploaded from .csv files
   - Charts can be referenced in attribute logic or directly added to rulebook pages
 - [Sheet Templates](../sheet-templates.md)
   - Provides a template for character sheets
   - Sheet templates hold fields to control a character’s attributes
+  - Players may optionally choose a template to bootstrap their character sheet
 - [Rulebook](../rulebook.md)
   - Binds the rules of your ruleset into a digital book
   - Pages can be nested and linked together to emulate a wiki structure
+
+## Creating a Ruleset
+
+You can create a new ruleset by selecting "Custom Rulesets" on the home page, then clicking the "Create" button.
+
+You may also copy a ruleset on your shelf to build your own version of it. Copying rulesets allows you to build custom rules on top of existing games you own.
+
+![img](../img/create-ruleset.png)
