@@ -85,11 +85,6 @@ const config = {
             label: 'Launch',
             position: 'left',
           },
-          {
-            href: 'https://www.youtube.com/watch?v=ZvjVHv9MK8w&list=PL1FkI_KjvtdUL62I9zLVow5oJRUDheEIL',
-            label: 'Tutorial Videos',
-            position: 'left',
-          },
 
           // {to: '/blog', label: 'Dev/Log', position: 'left'},
 
