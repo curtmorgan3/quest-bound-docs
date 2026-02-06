@@ -4,33 +4,29 @@ sidebar_position: 1
 
 # Managing Content
 
-![shelf](./img/shelf.png)
+All content in Quest Bound is stored on your computer directly through your browser. You can import and export Quest Bound data
+as files, many of which may optionally be opened in separate applications and managed there.
 
-## Your Shelf
+## Import Rulesets
 
-Your shelf is the collection of rulesets created by others which you have purchased or to which you've been added as a player.
+You can import rulesets as zip files directly from the rulesets page.
 
-With these rulesets, you can create a character or add a copy to your custom rulesets.
+![content](./img/rulesets.png)
 
-You'll add rulesets to your shelf by visiting their published pages. Each publisher is in control of sharing those links.
+There is a similar import button on most pages, including attributes, items, actions and charts.
+
+Importing a ruleset will fail if you have that ruleset already, so you must first delete the existing one if you want to replace it.
+
+Alternatively, content may be imported individually to rulesets. Doing so will import additively, letting you add content without replacing it.
+
+## Export Rulesets
+
+Export your ruleset as a zip file from the ruleset settings page. The zip file includes a README with meta data, directories with all the images
+and PDF documents used in the ruleset, as well as `.tsv` files for managing attributes, items, actions and charts in a spreadsheet application like Google Sheets
+or Microsoft Excel.
 
 ## Characters
 
-Characters are created from rulesets. When a character is opened, you may view and edit its sheet as well as view all the content from its ruleset.
+Characters are created from rulesets. When a character is opened, you may build its character sheet from the set of windows available in its ruleset.
 
 [Learn more about characters](./characters.md).
-
-:::tip
-The ruleset content in the character view is always the most up to date version. That means rulebook pages, documents, charts, etc are all subject to change.
-
-If you want to create a character from the _current_ version of that ruleset and ignore future changes, make sure to make a copy of that ruleset first, then create the
-character from your copy.
-:::
-
-## Custom Rulesets
-
-Custom rulesets are ones you create from scratch, or ones which you have copied from a ruleset on your shelf.
-
-:::info Your copy belongs to you
-Just like buying a ruleset from the store and bringing it home, you’re free to do what you’d like with any custom ruleset. Edit the pages, add archetypes, change the rules, redesign the sheet templates—changes you make to your ruleset will only be visible to you.
-:::

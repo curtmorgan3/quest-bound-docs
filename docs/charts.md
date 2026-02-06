@@ -12,15 +12,7 @@ Charts have limited editing capabilities in Quest Bound. Use a program like Exce
 You can edit individual cell values in Quest Bound, or you can upload a new file to an existing chart at any time to update its data.
 :::
 
-![img](./attributes/img/chart-2.png)
-
 ## Referencing Charts
-
-There are two places you’ll likely need to reference chart data: [rulebook pages](./rulebook.md) and in [attribute logic](./logic/logic.md).
-
-Rulebook pages can display charts as a table which can easily be formatted.
-
-![img](./img/rulebook-chart.png)
 
 Chart components will always read directly from the chart, meaning the pages will update automatically as you update the charts in your ruleset. Read more about how this works on the [rulebook page](./rulebook.md).
 
@@ -39,9 +31,5 @@ The **first** row that passes the comparison chain will be used to provide the v
 
 In the example below, the chart node scans the selected chart. For every row in the chart, it checks if the value in the Score column is equal to this character's Strength.
 If the score matches, the chart node provides the value of that row's Modifier column.
-
-![img](./attributes/img/chart-1.png)
-
-![img](./attributes/img/chart-3.png)
 
 Assuming the Strength of this character is 3, the value now provided to the output of the chart node is -4.

@@ -15,7 +15,7 @@ function HomepageHeader() {
         <img alt='Quest Bound' src='/img/QB_monogram.svg' style={{ height: 250, width: 250 }} />
         <div className='stack' style={{ textAlign: 'center' }}>
           <h1>Quest Bound Documentation</h1>
-          <h3>Learn how to make your own rules</h3>
+          <h3>Make your own rules</h3>
         </div>
       </div>
 
