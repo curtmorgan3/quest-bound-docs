@@ -14,8 +14,6 @@ You can edit individual cell values in Quest Bound, or you can upload a new file
 
 ## Referencing Charts
 
-Chart components will always read directly from the chart, meaning the pages will update automatically as you update the charts in your ruleset. Read more about how this works on the [rulebook page](./rulebook.md).
-
 ### Chart Logic Nodes
 
 In attribute logic, a chart node will allow attributes to scan charts and pull data from a specific cell, applying its value to its logic calculation.

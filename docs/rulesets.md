@@ -29,7 +29,7 @@ A ruleset is made of the following:
   - A modular piece of UI used to construct character sheets
 - [Documents](./documents.md)
   - PDFs to be referenced by players from the character view
-- [Scripts](./scripts.md)
+- [Scripts](./scripts/scripts.md)
   - Control the automation of your game through a programming interface
   - Coming soon
 
