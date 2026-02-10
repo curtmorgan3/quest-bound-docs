@@ -40,3 +40,8 @@ You can create a new ruleset by selecting the 'open' button on the sidebar, then
 ## Adding a Ruleset
 
 Upload a ruleset from a zip file by selecting the open button on the sidebar, then clicking the upload icon.
+
+## Ruleset Settings
+
+When a ruleset is opened, click the gear icon in the sidebar to open its settings. Here, you can manage the title, version and description of a ruleset.
+You can also export a ruleset from this page.
