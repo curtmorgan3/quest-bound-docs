@@ -1,42 +1,128 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # Documents
 
-RPGs often have additional resources beyond the rulebook which serve as references for players during gameplay. You may create documents in your ruleset by uploading PDFs, which
-can then be referenced directly from character sheets.
+Documents are PDF files that you can attach to your ruleset for players to reference. They're perfect for rulebooks, quick reference guides, character creation instructions, and any other written content.
 
-## Additional References
+## What are Documents?
 
-Any document added to your ruleset will be accessible from a character's homepage by selecting "Documents" from the sidebar.
+Documents allow you to include PDF files in your ruleset that players can view while playing. This is useful for:
 
-This will populate the table of contents with a selectable list.
+- **Rulebooks** - Full game rules and mechanics
+- **Quick reference sheets** - Combat rules, spell lists, condition effects
+- **Character creation guides** - Step-by-step instructions for making characters
+- **Lore and worldbuilding** - Setting information, maps, histories
+- **Supplemental content** - Additional rules, optional systems, expansions
 
-:::tip
-It is highly recommended that you include a PDF version of the rulebook in any ruleset you publish. Players are more likely to purchase content in
-digital formats if it is sold alongside a downloadable file.
+## Creating Documents
 
-Published rulesets which include a PDF rulebook are marked with a special indicator on their marketplace pages.
-:::
+To create a document:
 
-## Using a Document in the Rulebook
+1. Navigate to the Documents page in your ruleset
+2. Click the "New" button
+3. Provide a title, description, and optional category
+4. Upload a cover image (optional but recommended)
+5. Upload a PDF file
+6. Click "Create"
 
-A single document may be assigned to a ruleset's rulebook. Doing so will allow you to use any page of that document
-as a component in the page editor.
+### Document Properties
 
-These components work like all others. They may be styled, scaled and arranged individually. By layering components on top of the
-document component, you can make edits and additions to the page.
+Each document has:
 
-## Automatic Rulebook Generation
+- **Title** - The name displayed to players
+- **Description** - Brief explanation of the document's contents
+- **Category** - Optional grouping (e.g., "Rules", "Lore", "Reference")
+- **Cover Image** - Visual thumbnail to help identify the document
+- **PDF File** - The actual document content
 
-Quest Bound can create an entire rulebook for you from a document. After assigning a document to a rulebook, an option to create pages
-from that document will appear.
+## Viewing Documents
 
-When selected, Quest Bound will create a new rulebook page for each page of the document. These pages will have a single document component, set to
-fill the entire page by default.
+### From the Ruleset
 
-:::info
-Quest Bound will title each generated rulebook page based on the largest text on the page in the PDF. Depending on how the PDF is formatted,
-this might not always make sense. Each page title can be edited after its creation just like normal rulebook pages.
-:::
+When editing a ruleset, you can view documents by:
+
+1. Going to the Documents page
+2. Clicking on any document card
+3. The PDF viewer opens with the full document
+
+### From Character Sheets
+
+Players can access documents while viewing their characters:
+
+1. Open a character
+2. Click the documents icon in the sidebar
+3. Browse available documents
+4. Click to open and view
+
+### Pinning Documents
+
+Characters can pin frequently-referenced documents to their sidebar:
+
+1. Open a document while viewing a character
+2. Click the pin icon
+3. The document remains in the sidebar for quick access during play
+
+## PDF Viewer Features
+
+The built-in PDF viewer includes:
+
+- **Page navigation** - Browse through pages with next/previous buttons
+- **Zoom controls** - Adjust the view size for readability
+- **Download** - Save a copy of the PDF to your device
+- **Search** - Find specific text within the document (browser-dependent)
+
+## Document Categories
+
+Organize documents into categories to help players find what they need:
+
+- **Rules** - Core mechanics and systems
+- **Reference** - Quick lookup tables and guides
+- **Lore** - Setting information and stories
+- **Character** - Creation and advancement guides
+- **Supplemental** - Optional rules and expansions
+
+Categories appear as filters on the documents page, making navigation easier.
+
+## Best Practices
+
+- **Use cover images** - Visual thumbnails help players identify documents quickly
+- **Keep PDFs focused** - Break large rulebooks into smaller, topic-specific documents
+- **Descriptive titles** - Clear names help players find what they need
+- **Optimize file size** - Compress PDFs to improve loading times
+- **Organize with categories** - Group related documents together
+- **Include a "Quick Start"** - A brief getting-started guide for new players
+- **Update regularly** - Keep documents current with your ruleset version
+
+## Documents vs. Content Components
+
+**Use Documents when:**
+
+- You have existing PDF content
+- You need multi-page formatted text
+- You want players to download or print content
+- Content is primarily reference material
+
+**Use Content components (in windows) when:**
+
+- Information should be visible on the character sheet
+- Content is brief and specific to a character
+- You want markdown formatting
+- Information changes per character
+
+## Exporting Documents
+
+When you export a ruleset:
+
+- All documents are included in a `documents/` folder
+- PDF files are preserved with their original formatting
+- Document metadata (title, description, category) is included
+- Cover images are stored in the `images/` folder
+
+This makes it easy to:
+
+- Share complete rulesets with all reference materials
+- Back up your content
+- Transfer documents between rulesets
+- Edit PDFs externally and re-import
