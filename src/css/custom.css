@@ -71,6 +71,12 @@ a.button, a.card, a.pagination-nav__link {
   padding: 4px;
 }
 
-.thin-scrollbar {
-  position: fixed !important;
+/* Code blocks: avoid fixed positioning, contain floated lines, override global text color */
+.theme-doc-markdown .theme-code-block {
+  position: static !important;
+  overflow: auto;
+  color: var(--prism-color, #e6edf3);
+}
+.theme-doc-markdown .theme-code-block * {
+  color: inherit;
 }
