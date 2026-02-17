@@ -4,33 +4,54 @@ sidebar_position: 1
 
 # Managing Content
 
-![shelf](./img/shelf.png)
+All content in Quest Bound is stored on your computer directly through your browser. You can import and export Quest Bound data
+as files, many of which may optionally be opened in a separate spreadsheet application and managed there.
 
-## Your Shelf
+## Import Rulesets
 
-Your shelf is the collection of rulesets created by others which you have purchased or to which you've been added as a player.
+You can import rulesets as zip files directly from the rulesets page.
 
-With these rulesets, you can create a character or add a copy to your custom rulesets.
+![content](./img/rulesets.png)
 
-You'll add rulesets to your shelf by visiting their published pages. Each publisher is in control of sharing those links.
+There is a similar import button on most pages, including attributes, items, actions and charts.
+
+### Ruleset Versions
+
+A ruleset's version is set from the ruleset settings page. Its version controls the importing behavior when you have a copy
+of the imported ruleset already.
+
+**Older Version**
+
+If the version you're importing is older than your current version, you cannot import it. Delete your current copy
+to proceed with the import.
+
+**Same Version**
+
+If you're importing the same version that you already have, you'll be prompted to supply a name and version number
+to import it as a different ruleset. Keep in mind that this will be treated as an entirely separate ruleset. You will
+not be able to migrate a character from your pre-existing ruleset to the new one.
+
+**Newer Version**
+
+If the version you're importing is newer, you'll be prompted to replace your current version. This will completely overwrite your
+existing ruleset.
+
+### Importing Entities to a Ruleset
+
+An alternative to importing whole rulesets is importing its attributes, actions and items directly into an existing ruleset.
+
+Doing so will import additively, letting you add content without replacing it. Any entities with IDs already found in your ruleset will be updated.
+
+You can unzip a ruleset export to find the `.tsv` files to use for importing its entities.
+
+## Export Rulesets
+
+Export your ruleset as a zip file from the ruleset settings page. The zip file includes a README with meta data, directories with all the images
+and PDF documents used in the ruleset, as well as `.tsv` files for managing attributes, items, actions and charts in a spreadsheet application like Google Sheets
+or Microsoft Excel.
 
 ## Characters
 
-Characters are created from rulesets. When a character is opened, you may view and edit its sheet as well as view all the content from its ruleset.
+Characters are created from rulesets. When a character is opened, you may build its character sheet from the set of windows available in its ruleset.
 
 [Learn more about characters](./characters.md).
-
-:::tip
-The ruleset content in the character view is always the most up to date version. That means rulebook pages, documents, charts, etc are all subject to change.
-
-If you want to create a character from the _current_ version of that ruleset and ignore future changes, make sure to make a copy of that ruleset first, then create the
-character from your copy.
-:::
-
-## Custom Rulesets
-
-Custom rulesets are ones you create from scratch, or ones which you have copied from a ruleset on your shelf.
-
-:::info Your copy belongs to you
-Just like buying a ruleset from the store and bringing it home, you’re free to do what you’d like with any custom ruleset. Edit the pages, add archetypes, change the rules, redesign the sheet templates—changes you make to your ruleset will only be visible to you.
-:::

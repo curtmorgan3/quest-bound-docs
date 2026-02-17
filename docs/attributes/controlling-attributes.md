@@ -6,21 +6,14 @@ sidebar_position: 2
 
 When your players make a character from your game, that character gets a copy of every attribute in your ruleset. The player needs to be able to control those attributes, viewing and updating them for the lifetime of that character.
 
-## Simple Sheets
+## Windows
 
-All characters come with a simple character sheet. The simple sheet will have a field for every attribute in the ruleset. Those fields will be appropriate for the attribute type.
-
-![img](./img/simple-character.png)
-
-## Custom Sheets
-
-When a player makes a character, they have the option of selecting one of the ruleset's [sheet templates](../sheet-templates.md). As the creator of that template, you can choose which fields control attributes.
+When a player makes a character, they construct their own character sheet by adding windows from the ruleset. Each window can include
+controls wired up to specific attributes.
 
 ### Controlling Attributes
 
 Certain components have an option in their toolbar for attribute assignment. Components that are controlled by the player in game, like inputs and checkboxes, will let players control those attributes.
-
-![img](../logic/img/assign-attribute.png)
 
 :::info
 Boolean attributes may only be assigned to checkboxes. A check indicates a value of _true_, while unchecked represents _false_.
@@ -28,30 +21,31 @@ Boolean attributes may only be assigned to checkboxes. A check indicates a value
 
 ### Reading Attributes
 
-Text and graph components may also be assigned attributes. Unlike inputs and checkboxes, these components will only read attribute values, not update them.
+Text and content components may also be assigned attributes. Unlike inputs and checkboxes, these components will only read attribute values, not update them.
 
-Text components which are assigned an attribute will display its value. For number attributes, there is an option to always display the appropriate mathematical sign.
+Text components which are assigned an attribute will display its value.
 
-![img](./img/read-only-attribute.png)
+:::info
+Text and content components can interpolate attribute values. To do so, surround the attribute's name in `{{}}`
 
-Graph components display a percentage of an assigned attribute's current value over its maximum value, or that of one attribute's value over another.
+`Hit Points: {{Hit Points}}` will read `Hit Points: 10` when viewed on a character sheet.
+:::
 
-![img](./img/graph-attribute.png)
+## Inventories
 
-### Text Replacement
+Attributes can be added to a character's inventory as an altnerative to managing them through window components. There are
+two ways to add attributes to inventories.
 
-You can reference the value of any attribute, or any attribute's maximum value, with text replacement.
+### Inventory Window Components
 
-When placing the name of an attribute within double curly brackets, `{{Attribute Name}}`, the value of that attribute will replace that text. The use the maximum value, add `:max` to the end of the attribute name. `{{Attribute Name:max}}` This can be done in most places where text is freely placed, including text and notes components.
+An inventory component may be placed in a window. When viewed, double clicking will open a panel where all items, attributes or actions may
+be added. Once it's added to the inventory, click it to open a context menu where you can control its value.
 
-### Built In Variables
+### Character Inventory Panel
 
-Image components can pull their own image from the character's portrait or, for [rulebook pages with assigned archetypes](../rulebook.md), the archetype's image.
+Players can also add attributes to an inventory panel that tracks all of their items, attributes and actions in one place. From a character
+sheet, click the inventory icon in the sidebar to open this panel.
 
-![img](../img/use-archetype-image.png)
-
-A similar option exists on content components to inject an archetype’s description.
-
-![img](../img/use-description-image.png)
-
-Within such a page, `{{name}}` will inject the archetype's name without any additional attribute creation.
+:::tip
+Learn more about inventories [here](../items.md).
+:::

@@ -76,32 +76,20 @@ const config = {
         },
         items: [
           {
-            href: 'https://signup.questbound.com',
-            label: 'Sign Up',
+            href: 'https://questbound.com',
+            label: 'Home',
             position: 'left',
           },
           {
-            href: 'https://questbound.com',
+            href: 'https://app.questbound.com',
             label: 'Launch',
             position: 'left',
           },
-
-          // {to: '/blog', label: 'Dev/Log', position: 'left'},
-
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Tutorial',
-          //       to: '/docs/intro',
-          //     },
-          //   ],
-          // },
           {
             title: 'Community',
             items: [
@@ -111,24 +99,7 @@ const config = {
               },
               {
                 label: 'Discord',
-                href: 'https://discord.gg/7QGV4muT39',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/quest_bound/',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Sign Up',
-                href: 'https://signup.questbound.com',
-              },
-              {
-                label: 'Contact Support',
-                href: 'mailto:support@questbound.com',
+                href: 'https://discord.gg/Zx2jR5Q3zN',
               },
             ],
           },

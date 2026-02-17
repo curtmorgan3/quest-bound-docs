@@ -6,7 +6,7 @@ sidebar_position: 15
 
 ## The Gist
 
-- If you observe or suspect a copyright violation is taking place on Quest Bound, email `dmca@questbound.com`
+- If you observe or suspect a copyright violation is taking place on Quest Bound, report it to `@cap` on our [Discord Server](https://discord.gg/Zx2jR5Q3zN)
 
 - A representative will respond to your inquiry and begin an investigation with due haste
 
