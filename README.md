@@ -1,5 +1,7 @@
 # Quest Bound Documentation
 
+See live docs [here](https://docs.questbound.com)
+
 Find the main Quest Bound repo [here](https://github.com/curtmorgan3/quest-bound).
 
 ## Requirements
