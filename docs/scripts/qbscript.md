@@ -183,13 +183,15 @@ damage = roll('1d8');
 
 Use these to resolve entities by name:
 
-| Call                                     | Returns                                    |
-| ---------------------------------------- | ------------------------------------------ |
-| `<Accessor>.Attribute('attribute name')` | Attribute reference (character or ruleset) |
-| `<Accessor>.Action('action name')`       | Action reference                           |
-| `<Accessor>.Item('item name')`           | First matching item instance               |
-| `<Accessor>.Items('item name')`          | Array of matching item instances           |
-| `Ruleset.Chart('chart name')`            | Chart reference                            |
+| Call                                     | Returns                                                 |
+| ---------------------------------------- | ------------------------------------------------------- |
+| `<Accessor>.Attribute('attribute name')` | Attribute reference (character or ruleset)              |
+| `getAttr('attribute name)`               | Shorthand for `Owner.Attribute('attribute name').value` |
+| `<Accessor>.Action('action name')`       | Action reference                                        |
+| `<Accessor>.Item('item name')`           | First matching item instance                            |
+| `<Accessor>.Items('item name')`          | Array of matching item instances                        |
+| `Ruleset.Chart('chart name')`            | Chart reference                                         |
+| `getChart('chart name')`                 | Shorthand for `Ruleset.Chart('chart name')`             |
 
 **Examples:**
 
@@ -218,6 +220,7 @@ Ruleset.Attribute('Strength'); // Attribute definition (ruleset)
 **Attributes:**
 
 - `Owner.Attribute('attribute name')` — character's attribute instance
+- `getAttr('attribute name')` — character's attribute instance's value, shorthand for `Owner.Attribute('attribute name').value`
 
 ### Attribute API
 
@@ -257,21 +260,24 @@ subscribe(attr_name, 'Level');
 
 ### Charts
 
-Get a chart with `Ruleset.Chart('chart name')`, then use:
+Get a chart with `getChart('chart name')`, then use:
 
-| Method                                                        | Description                                                                                                                                   |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chart.get('column name')`                                    | All values in that column (array)                                                                                                             |
-| `chart.randomColumn()`                                        | All values from a random column                                                                                                               |
-| `chart.randomCell()`                                          | Value of a random cell                                                                                                                        |
-| `chart.randomNonEmptyCell()`                                  | Value of a random non-empty cell                                                                                                              |
-| `chart.where('source column', source_value, 'target column')` | Find the first row in source column where its value equals `source_value`; return value from target column in that row (or `''` if not found) |
+| Method                                                               | Description                                                                                                                                                        |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `chart.get('column name')`                                           | All values in that column (array)                                                                                                                                  |
+| `chart.randomColumn()`                                               | All values from a random column                                                                                                                                    |
+| `chart.randomCell()`                                                 | Value of a random cell                                                                                                                                             |
+| `chart.randomNonEmptyCell()`                                         | Value of a random non-empty cell                                                                                                                                   |
+| `chart.valueInColumn('column name')`                                 | Value from that column in the first data row (row immediately after the header row)                                                                                |
+| `chart.rowWhere('column name', value)`                               | A row proxy for the first row where the given column equals `value` (or an empty row if not found); chain with `.valueInColumn('other column')` to read a value.   |
+| `chart.rowWhere('column name', value).valueInColumn('other column')` | Convenience pattern: find a row by one column and read a value from another column in that same row (returns `''` if the row is empty or the column is not found). |
 
 **Examples:**
 
 ```javascript
-spell_damage = Ruleset.Chart('Spells').where('Spell Name', 'Fireball', 'Damage');
-xp_needed = Ruleset.Chart('Level Table').where('Level', 5, 'XP Required');
+spell_damage = getChart('Spells').rowWhere('Spell Name', 'Fireball').valueInColumn('Damage');
+
+xp_needed = getChart('Level Table').rowWhere('Level', 5).valueInColumn('XP Required');
 ```
 
 ### Items

@@ -88,7 +88,9 @@ level = Owner.Attribute('Level').value;
 class_name = Owner.Attribute('Class').value;
 
 // Get hit die from chart
-hit_die = Ruleset.Chart('Classes').where('Class', class_name, 'Hit Die');
+hit_die = Ruleset.Chart('Classes')
+  .rowWhere('Class', class_name)
+  .valueInColumn('Hit Die');
 
 // First level gets max + con mod
 // Each additional level gets average + con mod
@@ -146,7 +148,9 @@ on_activate(Target):
 on_activate(Target):
   // Get spell details from chart
   spell_name = Owner.Attribute('Selected Spell').value
-  spell_level = Ruleset.Chart('Spells').where('Spell', spell_name, 'Level')
+  spells_chart = Ruleset.Chart('Spells')
+  spell_row = spells_chart.rowWhere('Spell', spell_name)
+  spell_level = spell_row.valueInColumn('Level')
   mana_cost = spell_level * 2
 
   // Check if enough spell slots
@@ -159,16 +163,16 @@ on_activate(Target):
   Owner.Attribute('Mana').subtract(mana_cost)
 
   // Get spell effect
-  spell_type = Ruleset.Chart('Spells').where('Spell', spell_name, 'Type')
+  spell_type = spell_row.valueInColumn('Type')
 
   if spell_type == 'Damage':
-    damage_dice = Ruleset.Chart('Spells').where('Spell', spell_name, 'Dice')
+    damage_dice = spell_row.valueInColumn('Dice')
     int_mod = calculateModifier(Owner.Attribute('Intelligence').value)
     damage = roll(damage_dice) + int_mod
     Target.Attribute('Hit Points').subtract(damage)
     announce('{{spell_name}} hits {{Target.title}} for {{damage}} damage!')
   else if spell_type == 'Heal':
-    healing_dice = Ruleset.Chart('Spells').where('Spell', spell_name, 'Dice')
+    healing_dice = spell_row.valueInColumn('Dice')
     healing = roll(healing_dice)
     Target.Attribute('Hit Points').add(healing)
     announce('{{spell_name}} heals {{Target.title}} for {{healing}} HP!')
