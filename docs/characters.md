@@ -1,5 +1,5 @@
 ---
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 # Characters
@@ -40,7 +40,7 @@ When you first open a character, the sheet is empty. To add windows:
 
 ### Sheet Pages
 
-Characters can have multiple pages, each with its own layout and optional background image. This is useful for organizing different aspects of a character.
+Characters can have multiple pages, each with its own layout and optional background image. Pages are built from [ruleset pages](./pages.md)—templates that ruleset creators design in the Pages tab. This is useful for organizing different aspects of a character.
 
 **Common page setups:**
 

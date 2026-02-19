@@ -67,6 +67,10 @@ Components can overlap. Use the layer controls to adjust which components appear
 - Select a component
 - Use the layer buttons in the toolbar to bring forward or send backward
 
+## Pages: Combining Windows into Templates
+
+Windows are combined into [pages](./pages.md)—templates that define which windows appear on a character sheet and where they're positioned. Create pages in the Pages tab of your ruleset, add windows to each page, and position them on the canvas. Characters then use these pages as the starting layout for their sheets.
+
 ## Using Windows in Character Sheets
 
 Once you've created windows in your ruleset, they become available to all characters using that ruleset.

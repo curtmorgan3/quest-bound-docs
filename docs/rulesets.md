@@ -27,6 +27,8 @@ A ruleset is made of the following:
   - Charts can be referenced in scripts or directly referenced
 - [Windows](./windows.md)
   - A modular piece of UI used to construct character sheets
+- [Pages](./pages.md)
+  - Sets of windows that serve as templates for a character sheet page
 - [Documents](./documents.md)
   - PDFs to be referenced by players from the character view
 - [Scripts](./scripts/scripts.md)
