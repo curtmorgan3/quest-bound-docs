@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Rulesets
@@ -45,3 +45,7 @@ Upload a ruleset from a zip file by selecting the open button on the sidebar, th
 
 When a ruleset is opened, click the gear icon in the sidebar to open its settings. Here, you can manage the title, version and description of a ruleset.
 You can also export a ruleset from this page.
+
+## Modules
+
+Rulesets can include content from other rulesets via [modules](./modules.md). Modules let you reuse attributes, actions, items, charts, documents, windows, and scripts from one ruleset in another.
