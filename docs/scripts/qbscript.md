@@ -13,6 +13,7 @@ Scripts can be attached to:
 - **Attributes** — Reactive scripts that recompute values when dependencies change
 - **Actions** — Event-driven scripts that run when triggered from the UI
 - **Items** — Event handlers for equip, unequip, consume, etc.
+- **Archetypes** — Event handlers for `on_add` and `on_remove` when an archetype is added to or removed from a character
 - **Global** — Utility modules that provide shared functions and variables
 
 ## Basic syntax
@@ -187,6 +188,7 @@ Use these to resolve entities by name:
 | ---------------------------------------- | ------------------------------------------------------- |
 | `<Accessor>.Attribute('attribute name')` | Attribute reference (character or ruleset)              |
 | `getAttr('attribute name)`               | Shorthand for `Owner.Attribute('attribute name').value` |
+| `Owner.hasArchetype('archetype name')`   | Whether the character has the given archetype           |
 | `<Accessor>.Action('action name')`       | Action reference                                        |
 | `<Accessor>.Item('item name')`           | First matching item instance                            |
 | `<Accessor>.Items('item name')`          | Array of matching item instances                        |
@@ -207,6 +209,10 @@ Ruleset.Attribute('Strength'); // Attribute definition (ruleset)
 
 - `Owner.name` — character's name
 - `Owner.title` — same as `name`
+
+**Archetypes:**
+
+- `Owner.hasArchetype('archetype name')` — whether the character has the given archetype
 
 **Items:**
 
@@ -317,6 +323,8 @@ Owner.Item('item name').property('Armor value').set(15); // Set instance custom 
 **Attribute script:** Use `subscribe(...)` and `return <value>`.
 
 **Item events:** `on_activate`, `on_equip`, `on_unequip`, `on_consume` — each handler should end with `return`.
+
+**Archetype events:** `on_add()` and `on_remove()` — run when the archetype is added to or removed from a character. Can alter attributes, add/remove items, etc.
 
 **Action events:** `on_activate()` and optionally `on_deactivate()`. Include `Target` in the signature when the action needs a target character.
 

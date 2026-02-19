@@ -16,6 +16,9 @@ A ruleset is made of the following:
   - The atoms of a ruleset. These are the variables that attach to all other entities
   - Stats like hit points, age, durability, skill and experience can all be represented as attributes
   - Attributes can affect and be affected by other ruleset entities through scripts
+- [Archetypes](./archetypes.md)
+  - Templates for character creation. Each archetype has a test character that defines starting attributes, pages, windows, and inventory
+  - Characters can have multiple archetypes; archetype scripts run on add/remove to alter the character
 - [Items](./items.md)
   - Objects that may be added and removed from character inventories
   - Items are built on top of attributes, may hold properties and abilities and use scripts to affect other entities
@@ -50,4 +53,4 @@ You can also export a ruleset from this page.
 
 ## Modules
 
-Rulesets can include content from other rulesets via [modules](./modules.md). Modules let you reuse attributes, actions, items, charts, documents, windows, and scripts from one ruleset in another.
+Rulesets can include content from other rulesets via [modules](./modules.md). Modules let you reuse attributes, archetypes, actions, items, charts, documents, windows, and scripts from one ruleset in another.

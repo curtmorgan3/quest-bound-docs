@@ -4,7 +4,7 @@ sidebar_position: 13
 
 # Characters
 
-Characters are the player avatars in Quest Bound. Each character is created from a ruleset and gets its own character sheet, inventory, and attribute values.
+Characters are the player avatars in Quest Bound. Each character is created from a ruleset and gets its own character sheet, inventory, and attribute values. Characters are created from [archetypes](./archetypes.md)—templates that define starting attributes, pages, windows, and inventory.
 
 ## Creating Characters
 
@@ -14,15 +14,15 @@ To create a character:
 2. Navigate to the Characters page
 3. Click "New Character"
 4. Enter a character name
-5. Optionally upload a character portrait
-6. Click "Create"
+5. Optionally select an archetype (defaults to "Default" if not selected)
+6. Optionally upload a character portrait
+7. Click "Create"
 
-The character will be created with:
+The character will be created by duplicating from the selected archetype's template:
 
-- Its own copy of all attributes from the ruleset (set to default values)
-- An empty inventory
-- Access to all windows defined in the ruleset
-- An empty character sheet ready to be customized
+- Its own copy of attributes, pages, and windows from the archetype
+- Inventory items from the archetype
+- Archetype scripts run to apply any final adjustments
 
 ## Character Sheets
 
@@ -94,6 +94,10 @@ To see all of a character's attributes:
 3. Browse or search for specific attributes
 4. Edit values directly if needed
 
+## Archetypes
+
+Characters can have one or more [archetypes](./archetypes.md). At creation, you choose an archetype (or use the default). During play, you can add or remove archetypes from the **Archetypes panel** in the sidebar—the same area where you access inventory. Archetypes can alter attributes, add items, and run scripts when added or removed.
+
 ## Character Inventory
 
 Every character has an inventory for storing items, actions, and attributes.
@@ -157,6 +161,7 @@ Access character settings by clicking the gear icon in the sidebar. Here you can
 ### For Ruleset Creators
 
 - **Design complete windows** - Include all related information in one window
+- **Use archetypes** - Create archetypes with distinct test characters for classes, races, or starting templates
 - **Test with real characters** - Create test characters to verify your design
 - **Provide window variety** - Offer different windows for different play styles
 - **Document your system** - Include character creation guides as documents
