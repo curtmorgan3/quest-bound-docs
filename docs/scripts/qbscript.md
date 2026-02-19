@@ -212,7 +212,10 @@ Ruleset.Attribute('Strength'); // Attribute definition (ruleset)
 
 **Archetypes:**
 
+- `Owner.archetypes` - returns an array of all the character's archetype names
 - `Owner.hasArchetype('archetype name')` — whether the character has the given archetype
+- `Owner.addArchetype('archetype name')` - adds the archetype to the character
+- `Owner.removeArchetype('archetype name')` - removes the archetype from the character
 
 **Items:**
 
