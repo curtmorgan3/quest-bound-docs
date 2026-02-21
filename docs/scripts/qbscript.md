@@ -237,22 +237,32 @@ Attribute scripts are reactive: they re-run when subscribed dependencies change 
 
 **Reading and writing:**
 
-| Member             | Description                               |
-| ------------------ | ----------------------------------------- |
-| `attr.value`       | Current value (use in expressions)        |
-| `attr.max`         | Maximum value                             |
-| `attr.min`         | Minimum value                             |
-| `attr.random`      | Returns a random option (list attributes) |
-| `attr.set(value)`  | Set value                                 |
-| `attr.add(n)`      | Add to current value (numeric)            |
-| `attr.subtract(n)` | Subtract (numeric)                        |
-| `attr.multiply(n)` | Multiply current value                    |
-| `attr.divide(n)`   | Divide current value                      |
-| `attr.setMax(n)`   | Set maximum value                         |
-| `attr.setMin(n)`   | Set min value                             |
-| `attr.setRandom()` | Sets to a random option (list attributes) |
-| `attr.next()`      | Set to next option (list)                 |
-| `attr.prev()`      | Set to previous option (list)             |
+| Member                                     | Description                                                       |
+| ------------------------------------------ | ----------------------------------------------------------------- |
+| `Owner.Attribute('attr name').value`       | Current value (use in expressions)                                |
+| `Owner.Attribute('attr name').max`         | Maximum value                                                     |
+| `Owner.Attribute('attr name').min`         | Minimum value                                                     |
+| `Owner.Attribute('attr name').random`      | Returns a random option (list Owner.Attribute('attr name')ibutes) |
+| `Owner.Attribute('attr name').set(value)`  | Set value                                                         |
+| `Owner.Attribute('attr name').add(n)`      | Add to current value (numeric)                                    |
+| `Owner.Attribute('attr name').subtract(n)` | Subtract (numeric)                                                |
+| `Owner.Attribute('attr name').multiply(n)` | Multiply current value                                            |
+| `Owner.Attribute('attr name').divide(n)`   | Divide current value                                              |
+| `Owner.Attribute('attr name').setMax(n)`   | Set maximum value                                                 |
+| `Owner.Attribute('attr name').setMin(n)`   | Set min value                                                     |
+| `Owner.Attribute('attr name').setRandom()` | Sets to a random option (list Owner.Attribute('attr name')ibutes) |
+| `Owner.Attribute('attr name').next()`      | Set to next option (list)                                         |
+| `Owner.Attribute('attr name').prev()`      | Set to previous option (list)                                     |
+
+:::tip
+You can assign an attribute to a variable for easier access.
+
+```
+attr = Owner.Attribute('attr name')
+attr.set(10)
+```
+
+:::
 
 **Attribute subscriptions (attribute scripts only):** Declare dependencies so the script re-runs when they change. You can pass string literals or variables.
 
