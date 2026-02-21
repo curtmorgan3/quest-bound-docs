@@ -4,11 +4,11 @@ sidebar_position: 10
 
 # Documents
 
-Documents are PDF files that you can attach to your ruleset for players to reference. They're perfect for rulebooks, quick reference guides, character creation instructions, and any other written content.
+Documents are reference content you attach to your ruleset for players to view—either **PDF files** or **markdown** text. They're perfect for rulebooks, quick reference guides, character creation instructions, and any other written content.
 
 ## What are Documents?
 
-Documents allow you to include PDF files in your ruleset that players can view while playing. This is useful for:
+Documents allow you to include PDFs or markdown in your ruleset that players can view while playing. This is useful for:
 
 - **Rulebooks** - Full game rules and mechanics
 - **Quick reference sheets** - Combat rules, spell lists, condition effects
@@ -35,7 +35,18 @@ Each document has:
 - **Description** - Brief explanation of the document's contents
 - **Category** - Optional grouping (e.g., "Rules", "Lore", "Reference")
 - **Cover Image** - Visual thumbnail to help identify the document
-- **PDF File** - The actual document content
+- **Content** - Either a **PDF file** or **markdown** (see [Markdown content](#markdown-content)); a document cannot have both
+
+## Markdown content
+
+Documents can use **markdown** instead of a PDF. This is useful for short reference text, house rules, or content you prefer to edit as plain text.
+
+- **Either/or**: A document has either a PDF or markdown content, not both. Adding or saving markdown for a document clears any existing PDF; uploading a PDF clears markdown.
+- **When you can use markdown**: If a document has no PDF, you can add or edit markdown from the Documents page by opening the document and using the edit (pencil) action, or when creating a new document without uploading a PDF.
+- **Rendering**: Markdown is rendered with standard formatting (headings, lists, bold, links, etc.). Links support `data:` and `blob:` URLs so you can use embedded images.
+- **Editing**: In the markdown editor you get an **Edit** / **Preview** toggle. Use **Cmd+Enter** (Mac) or **Ctrl+Enter** (Windows) to save. Saving markdown replaces the document’s content and removes any PDF that was previously attached.
+
+Documents with markdown are opened in the same viewer as PDFs; the content is shown as rendered markdown instead of a PDF.
 
 ## Viewing Documents
 
@@ -45,7 +56,7 @@ When editing a ruleset, you can view documents by:
 
 1. Going to the Documents page
 2. Clicking on any document card
-3. The PDF viewer opens with the full document
+3. The document opens (PDF viewer or markdown view, depending on content)
 
 ### From Character Sheets
 
@@ -78,7 +89,7 @@ The built-in PDF viewer includes:
 Organize documents into categories to help players find what they need:
 
 - **Rules** - Core mechanics and systems
-- **Reference** - Quick lookup tables and guides
+- **Reference** - Quick guides
 - **Lore** - Setting information and stories
 - **Character** - Creation and advancement guides
 - **Supplemental** - Optional rules and expansions
@@ -99,25 +110,24 @@ Categories appear as filters on the documents page, making navigation easier.
 
 **Use Documents when:**
 
-- You have existing PDF content
-- You need multi-page formatted text
-- You want players to download or print content
+- You have existing PDF content or short markdown reference text
+- You need multi-page formatted text (PDF) or simple formatted text (markdown)
+- You want players to download or print content (PDF) or read in-app (PDF or markdown)
 - Content is primarily reference material
 
 **Use Content components (in windows) when:**
 
 - Information should be visible on the character sheet
 - Content is brief and specific to a character
-- You want markdown formatting
 - Information changes per character
+- Players need to update the content in game
 
 ## Exporting Documents
 
 When you export a ruleset:
 
-- All documents are included in a `documents/` folder
-- PDF files are preserved with their original formatting
-- Document metadata (title, description, category) is included
+- Document metadata (title, description, category, and markdown content when present) is stored in `application data/documents.json`
+- PDF files are stored in a `documents/` folder with their original formatting
 - Cover images are stored in the `images/` folder
 
 This makes it easy to:

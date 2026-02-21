@@ -15,6 +15,13 @@ Scripts can be attached to:
 - **Items** — Event handlers for equip, unequip, consume, etc.
 - **Archetypes** — Event handlers for `on_add` and `on_remove` when an archetype is added to or removed from a character
 - **Global** — Utility modules that provide shared functions and variables
+- **Character Loader** — Runs once at character creation only, _before_ loading attribute defaults and archetype `on_add` script events. There can only be one character loader script per ruleset.
+
+### Character Loader
+
+- **Execution order**: Right after every character is created. Character Creation -> Character Loader -> Default attribute values and all attribute scripts -> Archetype `on_add` events
+- **Context**: Character loader scripts have the same accessors as other scripts: `Owner` (attributes, actions, items, inventory, `Owner.archetypes`, `Owner.hasArchetype`, add/remove archetype). The full script runs once; there is no named event handler.
+- **Export/import**: Stored in the `character_loaders/` folder; if a ruleset already has a Character Loader, importing a second one is skipped with a warning.
 
 ## Basic syntax
 
