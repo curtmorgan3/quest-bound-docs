@@ -168,6 +168,13 @@ damage = roll('1d8');
 | `min(a, b)` | Smaller of two values                    |
 | `max(a, b)` | Larger of two values                     |
 
+### Type conversion
+
+| Function      | Description                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------- |
+| `number(x)`   | Convert to a number. Strings have commas stripped first (e.g. `"1,000"` → 1000, `"3.14"` → 3.14). |
+| `text(x)`     | Convert to a string (e.g. `text(42)` → `"42"`; `null`/undefined become `""`).                     |
+
 ### UI and debugging
 
 | Function            | Description                                                                                                            |
@@ -249,7 +256,8 @@ Attribute scripts are reactive: they re-run when subscribed dependencies change 
 | `Owner.Attribute('attr name').value`       | Current value (use in expressions)                                |
 | `Owner.Attribute('attr name').max`         | Maximum value                                                     |
 | `Owner.Attribute('attr name').min`         | Minimum value                                                     |
-| `Owner.Attribute('attr name').random`      | Returns a random option (list Owner.Attribute('attr name')ibutes) |
+| `Owner.Attribute('attr name').options`     | Current list of options (list-type attributes); character override or ruleset default            |
+| `Owner.Attribute('attr name').random`      | Returns a random option (list attributes)                        |
 | `Owner.Attribute('attr name').set(value)`  | Set value                                                         |
 | `Owner.Attribute('attr name').add(n)`      | Add to current value (numeric)                                    |
 | `Owner.Attribute('attr name').subtract(n)` | Subtract (numeric)                                                |
@@ -257,7 +265,9 @@ Attribute scripts are reactive: they re-run when subscribed dependencies change 
 | `Owner.Attribute('attr name').divide(n)`   | Divide current value                                              |
 | `Owner.Attribute('attr name').setMax(n)`   | Set maximum value                                                 |
 | `Owner.Attribute('attr name').setMin(n)`   | Set min value                                                     |
-| `Owner.Attribute('attr name').setRandom()` | Sets to a random option (list Owner.Attribute('attr name')ibutes) |
+| `Owner.Attribute('attr name').setOptions(list)` | Set the attribute's options (list-type); values are coerced to strings.        |
+| `Owner.Attribute('attr name').resetOptions()`   | Reset options to the ruleset attribute definition.               |
+| `Owner.Attribute('attr name').setRandom()` | Sets to a random option (list attributes)                        |
 | `Owner.Attribute('attr name').next()`      | Set to next option (list)                                         |
 | `Owner.Attribute('attr name').prev()`      | Set to previous option (list)                                     |
 
@@ -313,12 +323,13 @@ xp_needed = getChart('Level Table').rowWhere('Level', 5).valueInColumn('XP Requi
 - `item.isEquipped` — whether the item is equipped
 - `item.isConsumable` — whether the item is consumable
 
-**Custom properties (defined on the Item):** Access by property name. Use `.property('label')` for names with spaces.
+**Item custom properties:** Items can define custom properties (string, number, or boolean) on the ruleset item. Each inventory instance can override those values. When reading, the instance value is used if set; otherwise the item definition default. Access by property name (e.g. `item.armor_value`). Use `.property('label')` for names with spaces. To set a value you must use a single item from `Owner.Item('item name')` — `.set(value)` is not available when iterating over `Owner.Items('item name')`.
 
 ```javascript
 armor = Owner.Item('Plate Mail');
-armor_value = armor.property('Armor Value'); // Read custom property
-Owner.Item('item name').property('Armor value').set(15); // Set instance custom property
+armor_value = armor.armor_value;           // Read (instance override or definition default)
+armor_value = armor.property('Armor Value'); // Same, for names with spaces
+Owner.Item('Plate Mail').armor_value.set(15); // Set instance custom property (single item only)
 ```
 
 ### Actions

@@ -7,6 +7,10 @@ sidebar_position: 5
 Items are the physical objects of your ruleset. By default, they have properties to track their weight, stack size and default quantity as well as
 boolean properties to indicate if they are storable, equippable, consumable or are themselves containers.
 
+## Custom properties
+
+You can define **custom properties** on an item (string, number, or boolean). These are key-value pairs stored on the item definition (e.g. "Armor Value" = 15). When a character has that item in their inventory, each instance can optionally override those values; otherwise the definition default is used. Custom properties are useful for item-specific data (armor class, damage dice, charges) that scripts or components can read and, for a single instance, update via QBScript (e.g. `Owner.Item('Plate Mail').property('Armor Value').set(12)`). You can manage custom properties on the item editor or in bulk from the items list.
+
 ## Inventories
 
 The items you add to a ruleset represent the full catalogue of available items. When a player adds an item to their character's inventory, they
