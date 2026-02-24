@@ -170,10 +170,10 @@ damage = roll('1d8');
 
 ### Type conversion
 
-| Function      | Description                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------- |
-| `number(x)`   | Convert to a number. Strings have commas stripped first (e.g. `"1,000"` → 1000, `"3.14"` → 3.14). |
-| `text(x)`     | Convert to a string (e.g. `text(42)` → `"42"`; `null`/undefined become `""`).                     |
+| Function    | Description                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| `number(x)` | Convert to a number. Strings have commas stripped first (e.g. `"1,000"` → 1000, `"3.14"` → 3.14). |
+| `text(x)`   | Convert to a string (e.g. `text(42)` → `"42"`; `null` become `""`).                               |
 
 ### UI and debugging
 
@@ -251,25 +251,25 @@ Attribute scripts are reactive: they re-run when subscribed dependencies change 
 
 **Reading and writing:**
 
-| Member                                     | Description                                                       |
-| ------------------------------------------ | ----------------------------------------------------------------- |
-| `Owner.Attribute('attr name').value`       | Current value (use in expressions)                                |
-| `Owner.Attribute('attr name').max`         | Maximum value                                                     |
-| `Owner.Attribute('attr name').min`         | Minimum value                                                     |
-| `Owner.Attribute('attr name').options`     | Current list of options (list-type attributes); character override or ruleset default            |
-| `Owner.Attribute('attr name').random`      | Returns a random option (list attributes)                        |
-| `Owner.Attribute('attr name').set(value)`  | Set value                                                         |
-| `Owner.Attribute('attr name').add(n)`      | Add to current value (numeric)                                    |
-| `Owner.Attribute('attr name').subtract(n)` | Subtract (numeric)                                                |
-| `Owner.Attribute('attr name').multiply(n)` | Multiply current value                                            |
-| `Owner.Attribute('attr name').divide(n)`   | Divide current value                                              |
-| `Owner.Attribute('attr name').setMax(n)`   | Set maximum value                                                 |
-| `Owner.Attribute('attr name').setMin(n)`   | Set min value                                                     |
-| `Owner.Attribute('attr name').setOptions(list)` | Set the attribute's options (list-type); values are coerced to strings.        |
-| `Owner.Attribute('attr name').resetOptions()`   | Reset options to the ruleset attribute definition.               |
-| `Owner.Attribute('attr name').setRandom()` | Sets to a random option (list attributes)                        |
-| `Owner.Attribute('attr name').next()`      | Set to next option (list)                                         |
-| `Owner.Attribute('attr name').prev()`      | Set to previous option (list)                                     |
+| Member                                          | Description                                                                           |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `Owner.Attribute('attr name').value`            | Current value (use in expressions)                                                    |
+| `Owner.Attribute('attr name').max`              | Maximum value                                                                         |
+| `Owner.Attribute('attr name').min`              | Minimum value                                                                         |
+| `Owner.Attribute('attr name').options`          | Current list of options (list-type attributes); character override or ruleset default |
+| `Owner.Attribute('attr name').random`           | Returns a random option (list attributes)                                             |
+| `Owner.Attribute('attr name').set(value)`       | Set value                                                                             |
+| `Owner.Attribute('attr name').add(n)`           | Add to current value (numeric)                                                        |
+| `Owner.Attribute('attr name').subtract(n)`      | Subtract (numeric)                                                                    |
+| `Owner.Attribute('attr name').multiply(n)`      | Multiply current value                                                                |
+| `Owner.Attribute('attr name').divide(n)`        | Divide current value                                                                  |
+| `Owner.Attribute('attr name').setMax(n)`        | Set maximum value                                                                     |
+| `Owner.Attribute('attr name').setMin(n)`        | Set min value                                                                         |
+| `Owner.Attribute('attr name').setOptions(list)` | Set the attribute's options (list-type); values are coerced to strings.               |
+| `Owner.Attribute('attr name').resetOptions()`   | Reset options to the ruleset attribute definition.                                    |
+| `Owner.Attribute('attr name').setRandom()`      | Sets to a random option (list attributes)                                             |
+| `Owner.Attribute('attr name').next()`           | Set to next option (list)                                                             |
+| `Owner.Attribute('attr name').prev()`           | Set to previous option (list)                                                         |
 
 :::tip
 You can assign an attribute to a variable for easier access.
@@ -323,13 +323,32 @@ xp_needed = getChart('Level Table').rowWhere('Level', 5).valueInColumn('XP Requi
 - `item.isEquipped` — whether the item is equipped
 - `item.isConsumable` — whether the item is consumable
 
-**Item custom properties:** Items can define custom properties (string, number, or boolean) on the ruleset item. Each inventory instance can override those values. When reading, the instance value is used if set; otherwise the item definition default. Access by property name (e.g. `item.armor_value`). Use `.property('label')` for names with spaces. To set a value you must use a single item from `Owner.Item('item name')` — `.set(value)` is not available when iterating over `Owner.Items('item name')`.
+### Custom properties
+
+Custom properties are key-value fields (string, number, or boolean) you define on the ruleset. They can be attached to both characters and items. Scripts work with the current value for a specific character or a specific item instance.
+
+**Character custom properties:**
+
+- `Owner.getProperty('Level')` — read a character custom property value (or `null` if it is not set).
+- `Owner.setProperty('Level', 5)` — set a character custom property value; changes are persisted with the character.
+
+**Item custom properties:**
+
+- Custom properties are defined on the ruleset item; each inventory instance can override the default value.
+- `item.getProperty('Armor Value')` — read the value for this specific inventory item (instance override if present, otherwise the item definition default).
+- `item.setProperty('Armor Value', 15)` — set the value for this specific inventory item instance.
+- You can only call `setProperty` on a single item returned by `Owner.Item('item name')`; items returned from `Owner.Items('item name')` are read-only for custom properties.
 
 ```javascript
+// Character-level custom property
+level = Owner.getProperty('Level') ?? 1;
+Owner.setProperty('Level', level + 1);
+
+// Item-level custom property
 armor = Owner.Item('Plate Mail');
-armor_value = armor.armor_value;           // Read (instance override or definition default)
-armor_value = armor.property('Armor Value'); // Same, for names with spaces
-Owner.Item('Plate Mail').armor_value.set(15); // Set instance custom property (single item only)
+if armor != null:
+  current = armor.getProperty('Armor Value') ?? 15;
+  armor.setProperty('Armor Value', current + 1);
 ```
 
 ### Actions
