@@ -39,6 +39,7 @@ shop_name = "Tabby's Tavern";
 
 - `.toUpperCase()` — returns the string in upper case
 - `.toLowerCase()` — returns the string in lower case
+- `.split(separator)` — splits the string by the given separator and returns an array of substrings (e.g. `'a,b,c'.split(',')` → `['a', 'b', 'c']`)
 
 **String interpolation:** Embed variables in any string with `{{variable}}`:
 
@@ -145,9 +146,10 @@ getMaxHP(con, level):
 
 ### Dice
 
-| Function           | Description                                                                                                                   |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `roll(expression)` | Roll dice from a string (e.g. `'1d8'`, `'2d6+4'`). Returns a number. Expression can use interpolation: `roll('{{level}}d4')`. |
+| Function                | Description                                                                                                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `roll(expression)`      | Roll dice from a string (e.g. `'1d8'`, `'2d6+4'`). Returns a number. Uses the roll function registered by the script runner (e.g. dice panel, 3D dice). Expression can use interpolation: `roll('{{level}}d4')`. |
+| `rollQuiet(expression)` | Same as `roll()` but does not show in the UI. Use for hidden or internal rolls. Returns a number.                                                                                                                |
 
 **Examples:**
 
@@ -155,6 +157,8 @@ getMaxHP(con, level):
 roll('1d8');
 roll('2d6+4');
 damage = roll('1d8');
+// Hidden roll does not show in dice panel
+stealth = rollQuiet('1d20+5');
 ```
 
 ### Math
@@ -170,10 +174,10 @@ damage = roll('1d8');
 
 ### Type conversion
 
-| Function    | Description                                                                                       |
-| ----------- | ------------------------------------------------------------------------------------------------- |
-| `number(x)` | Convert to a number. Strings have commas stripped first (e.g. `"1,000"` → 1000, `"3.14"` → 3.14). |
-| `text(x)`   | Convert to a string (e.g. `text(42)` → `"42"`; `null` become `""`).                               |
+| Function    | Description                                                                                                                                                                                                                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `number(x)` | Parse the argument to a number. If the argument is a string, any `,` characters are removed first (e.g. thousands separators), then the result is passed to the Number constructor. Periods are kept for decimals. e.g. `number("42")` → 42, `number("1,000")` → 1000, `number("3.14")` → 3.14 |
+| `text(x)`   | Convert the argument to a string with leading and trailing spaces removed. e.g. `text(42)` → `"42"`. `null` becomes `""`, `" example"` becomes `"example"`.                                                                                                                                    |
 
 ### UI and debugging
 
@@ -188,11 +192,12 @@ damage = roll('1d8');
 
 ### Accessors
 
-| Accessor  | Meaning                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------ |
-| `Owner`   | The character that initiated the script                                                    |
-| `Ruleset` | Ruleset-level entities (attributes, charts, items, actions)                                |
-| `Self`    | The entity to which the script is attached — same as `Owner.Attribute('<this attribute>')` |
+| Accessor  | Meaning                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| `Owner`   | The character that initiated the script                                                                             |
+| `Ruleset` | Ruleset-level entities (attributes, charts, items)                                                                  |
+| `Self`    | The entity to which the script is attached`                                                                         |
+| `Caller`  | The entity that called the action. An item instance when triggered though an item assocition, otherwise a character |
 
 ### Getters
 
@@ -201,7 +206,7 @@ Use these to resolve entities by name:
 | Call                                     | Returns                                                 |
 | ---------------------------------------- | ------------------------------------------------------- |
 | `<Accessor>.Attribute('attribute name')` | Attribute reference (character or ruleset)              |
-| `getAttr('attribute name)`               | Shorthand for `Owner.Attribute('attribute name').value` |
+| `getAttr('attribute name')`              | Shorthand for `Owner.Attribute('attribute name').value` |
 | `Owner.hasArchetype('archetype name')`   | Whether the character has the given archetype           |
 | `<Accessor>.Action('action name')`       | Action reference                                        |
 | `<Accessor>.Item('item name')`           | First matching item instance                            |
@@ -222,7 +227,6 @@ Ruleset.Attribute('Strength'); // Attribute definition (ruleset)
 **Identity:**
 
 - `Owner.name` — character's name
-- `Owner.title` — same as `name`
 
 **Archetypes:**
 
@@ -236,7 +240,7 @@ Ruleset.Attribute('Strength'); // Attribute definition (ruleset)
 - `Owner.Item('item name')` — first matching item
 - `Owner.Items('item name')` — array of matching items
 - `Owner.hasItem('item name')` — whether the character has at least one
-- `Owner.addItem('item name', quantity)` — add to inventory (quantity defaults to 1)
+- `Owner.addItem('item name', quantity, inventoryId, x, y)` — add to inventory (quantity defaults to 1). Optionally specify which inventory component and the position
 - `Owner.removeItem('item name', quantity)` — remove from inventory
 - `Owner.setItem('item name', quantity)` — set total quantity (consolidates to one stack; 0 removes all)
 
@@ -253,7 +257,7 @@ Attribute scripts are reactive: they re-run when subscribed dependencies change 
 
 | Member                                          | Description                                                                           |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `Owner.Attribute('attr name').value`            | Current value (use in expressions)                                                    |
+| `Owner.Attribute('attr name').value`            | Current value                                                                         |
 | `Owner.Attribute('attr name').max`              | Maximum value                                                                         |
 | `Owner.Attribute('attr name').min`              | Minimum value                                                                         |
 | `Owner.Attribute('attr name').options`          | Current list of options (list-type attributes); character override or ruleset default |
@@ -285,7 +289,6 @@ attr.set(10)
 
 ```javascript
 subscribe('attribute one', 'attribute two'); // Re-run when these change
-subscribe('action name'); // Re-run when this action is activated
 
 attr_name = 'Constitution';
 subscribe(attr_name, 'Level');
@@ -301,6 +304,7 @@ Get a chart with `getChart('chart name')`, then use:
 | `chart.randomColumn()`                                               | All values from a random column                                                                                                                                    |
 | `chart.randomCell()`                                                 | Value of a random cell                                                                                                                                             |
 | `chart.randomNonEmptyCell()`                                         | Value of a random non-empty cell                                                                                                                                   |
+| `chart.randomRow()`                                                  | A row proxy for a randomly selected data row; chain with `.valueInColumn('column name')` to read a value                                                           |
 | `chart.valueInColumn('column name')`                                 | Value from that column in the first data row (row immediately after the header row)                                                                                |
 | `chart.rowWhere('column name', value)`                               | A row proxy for the first row where the given column equals `value` (or an empty row if not found); chain with `.valueInColumn('other column')` to read a value.   |
 | `chart.rowWhere('column name', value).valueInColumn('other column')` | Convenience pattern: find a row by one column and read a value from another column in that same row (returns `''` if the row is empty or the column is not found). |
@@ -323,6 +327,16 @@ xp_needed = getChart('Level Table').rowWhere('Level', 5).valueInColumn('XP Requi
 - `item.isEquipped` — whether the item is equipped
 - `item.isConsumable` — whether the item is consumable
 
+**Associated actions (per-instance):** Use `addAction('action name')` and `removeAction('action name')` to add or remove actions from the item's context menu.
+
+```javascript
+Self.addAction('Heal'); // Add Heal action to this item's context menu
+Self.removeAction('Heal'); // Remove from context menu
+
+item = Owner.addItem('Potion');
+item.addAction('Heal');
+```
+
 ### Custom properties
 
 Custom properties are key-value fields (string, number, or boolean) you define on the ruleset. They can be attached to both characters and items. Scripts work with the current value for a specific character or a specific item instance.
@@ -337,7 +351,6 @@ Custom properties are key-value fields (string, number, or boolean) you define o
 - Custom properties are defined on the ruleset item; each inventory instance can override the default value.
 - `item.getProperty('Armor Value')` — read the value for this specific inventory item (instance override if present, otherwise the item definition default).
 - `item.setProperty('Armor Value', 15)` — set the value for this specific inventory item instance.
-- You can only call `setProperty` on a single item returned by `Owner.Item('item name')`; items returned from `Owner.Items('item name')` are read-only for custom properties.
 
 ```javascript
 // Character-level custom property
