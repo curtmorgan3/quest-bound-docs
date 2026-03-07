@@ -29,9 +29,20 @@ documents and lists of attributes, items and actions.
 You can make modular pieces of UI called windows and construct digital character sheets from them. Windows are designed through
 a drag and drop editor, may reference content in your ruleset and be dynamic to a character's attributes.
 
-From a ruleset, you can make characters that have their own character sheets and track their own inventories and attributes.
+From a ruleset, you can make characters that have their own character sheets and track their own inventories and attributes. You can also create [campaigns](./campaigns.md) to run sessions—with scenes, turn order, events, and a game log.
 
-## Quest Bound is not a video game engine or virtual table top
+## What does it not do?
+
+It’s a table-side game console and automation engine for tabletop RPGs. QB runs the mechanics of your game — character abilities, combat logic, conditions, and rules — while you keep playing at the table or inside your favorite VTT.
+
+Quest Bound is not a Virtual Tabletop.
+
+Think of it as programmable digital tooling for tabletop systems.
+
+- Works with any RPG
+- Automates game mechanics
+- Fully customizable with QBScript
+- Designed to complement the table, not replace it
 
 While complex automation is completely possible in Quest Bound, it is not intended to replace the players or game master of a TTRPG. Use Quest Bound
 to augment your play either at the table or through a VTT. Quest Bound does not play the game for you.
