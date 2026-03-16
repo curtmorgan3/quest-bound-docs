@@ -11,7 +11,7 @@ Custom properties are key-value fields you define at the **ruleset level**. They
 A **custom property** is a named field with a **type** and an optional **default value**. You create the definitions once in your ruleset; each definition has:
 
 - **Label** — The name used in scripts and UI (e.g. `"Level"`, `"Armor Value"`). Must be unique within the ruleset.
-- **Type** — `string`, `number`, `boolean`, or `color`.
+- **Type** — `string`, `number`, `boolean`, `color`, or `image`.
 - **Category** — Optional grouping for the property list.
 - **Default value** — Optional. If omitted, the default is `''` (string), `0` (number), or `false` (boolean); for `color`, an empty string.
 
@@ -67,8 +67,9 @@ When that item is added to a character’s inventory, the instance gets values f
 | `number`  | Numeric value                   | `0`                |
 | `boolean` | True/false                      | `false`            |
 | `color`   | Color (e.g. hex like `#ff0000`) | `''`               |
+| `image`   | Image reference (asset ID). Used for image URLs or asset picks. | `''`               |
 
-Changing a property’s type in the Custom Properties page will reset its default value to the type’s default (e.g. number → `0`).
+Changing a property’s type in the Custom Properties page will reset its default value to the type’s default (e.g. number → `0`). For **image** type, the value is stored as an asset ID (or empty string); in the ruleset editor you set the default via an image upload/asset picker, and in scripts you read or set it like other properties (e.g. `Owner.getProperty('Portrait')` returns the asset ID string).
 
 ## Using custom properties in scripts and UI
 

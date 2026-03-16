@@ -232,6 +232,22 @@ last = numbers[2];
 
 Accessing an index out of bounds (negative or ≥ length) causes a runtime error.
 
+### Object literals and property access
+
+Objects are created with curly braces; keys are bare identifiers, values are expressions.
+
+```javascript
+dice_mod = {source: 'Blinded', duration: 3}
+effect = {name: 'Poison', stats: {damage: 5, turns: 2}}
+```
+
+**Property access:**
+
+- **Dot notation** — `obj.key` for a fixed property name (e.g. `dice_mod.source` → `'Blinded'`).
+- **Bracket notation** — `obj['key']` for a string key; useful when the key is in a variable or contains special characters (e.g. `dice_mod['duration']` → `3`).
+
+Nested objects and objects in arrays work as expected: `effect.stats.turns`, `modifiers[0].source`.
+
 ### Array methods
 
 | Method                 | Return value       | Notes                                              |
@@ -242,10 +258,28 @@ Accessing an index out of bounds (negative or ≥ length) causes a runtime error
 | `list.push(item)`      | —                  | Adds item to the end (mutates)                     |
 | `list.pop()`           | Last element       | Removes and returns last (mutates)                 |
 | `list.random()`        | Random element     |                                                    |
-| `list.filter()`        | New array          | Copy with only truthy values                       |
-| `list.filterEmpty()`   | New array          | Copy with non-empty values (excludes `''`, `null`) |
-| `list.sort()`          | Same array         | Sorts in place; default is string comparison       |
-| `list.sort(compareFn)` | Same array         | Sorts in place using comparator                    |
+| `list.filter()`          | Same array         | No argument: keep only truthy values (mutates in place, returns the same array). |
+| `list.filter(filterFn)` | Same array         | Keep only elements for which `filterFn(item)` returns truthy (mutates in place, returns the same array). `filterFn` receives each element; return a truthy value to keep it. |
+| `list.filterEmpty()`    | New array          | Copy with non-empty values (excludes `''`, `null`) |
+| `list.sort()`           | Same array         | Sorts in place; default is string comparison       |
+| `list.sort(compareFn)`  | Same array         | Sorts in place using comparator                    |
+
+**Filter examples:**
+
+```javascript
+values = [0, 1, '', 'hello', null, 42]
+values.filter()   // no arg: keep truthy → [1, 'hello', 42]
+
+isPositive(n):
+  return n > 0
+scores = [-5, 10, 0, 3, -1]
+scores.filter(isPositive)   // → [10, 3]
+
+isAlive(char):
+  return char.Attribute('HP').value > 0
+chars = Scene.characters()
+living = chars.filter(isAlive)
+```
 
 **Comparator for `sort(compareFn)`:** Pass a function `compareFn(a, b)`. Return a negative number if `a` should come before `b`, zero if equal, or a positive number if `a` should come after `b`.
 
@@ -400,6 +434,15 @@ announce('Spawned {{spawned.name}}.')
 
 - `char.turnOrder` — This character's position in turn order (0 = unset). Read-only.
 - `char.setTurnOrder(num)` — Set this character's turn order (0 = unset; gaps allowed).
+
+**Component style and animation (sheet components):**
+
+You can target sheet components by **reference label** (the component’s reference ID set in the editor). These apply to the character’s sheet in the viewer.
+
+- **`char.setComponentStyle(referenceLabel, styleProp, value)`** — Set a style override for all components on that character’s sheet with the given reference label. The override is persisted on the character and merged when the sheet is rendered. Example: `Owner.setComponentStyle('healthBar', 'backgroundColor', 'red')` or `Owner.setComponentStyle('title', 'color', '#333')`.
+- **`char.animateComponent(referenceLabel, animationName)`** — Trigger a one-off animation for all components with that reference label. The animation is delivered when the script run completes and applied in the sheet viewer. Example: `Owner.animateComponent('healthBar', 'shake')`. Supported animation names include those available in the component editor (e.g. `shake`, `pop`, `highlight`, `glow`, `shimmer`, `fade`).
+
+Both work on `Owner` and on any character reference (e.g. from `Scene.characters()`). They are applied when the script run finishes (e.g. after an action’s `on_activate` or when a reactive script runs).
 
 ---
 
