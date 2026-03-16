@@ -444,6 +444,40 @@ You can target sheet components by **reference label** (the component’s refere
 
 Both work on `Owner` and on any character reference (e.g. from `Scene.characters()`). They are applied when the script run finishes (e.g. after an action’s `on_activate` or when a reactive script runs).
 
+**Available style names for `setComponentStyle(referenceLabel, styleProp, value)`:**
+
+| styleProp | Value type | Description |
+| --------- | ---------- | ----------- |
+| **Background & fill** | | |
+| `backgroundColor` | string | Solid color (e.g. `'red'`, `'#333'`) or `linear-gradient(angle deg, color1, color2)`. For gradients the runtime may use `background` internally. |
+| `background` | string | Use when the fill is a linear gradient (set by the editor when `backgroundColor` is gradient). |
+| **Appearance** | | |
+| `opacity` | number | Opacity 0–1. |
+| `outline` | string | Outline style. |
+| `outlineWidth` | number | Outline width in pixels. |
+| `outlineColor` | string | Outline color. |
+| **Border radius** | | |
+| `borderRadius` | string | Shorthand (e.g. `'8px'`). |
+| `borderRadiusTopLeft` | number | Top-left corner radius in pixels. |
+| `borderRadiusTopRight` | number | Top-right corner radius in pixels. |
+| `borderRadiusBottomLeft` | number | Bottom-left corner radius in pixels. |
+| `borderRadiusBottomRight` | number | Bottom-right corner radius in pixels. |
+| **Padding** | | |
+| `paddingTop` | number | Top padding in pixels. |
+| `paddingRight` | number | Right padding in pixels. |
+| `paddingBottom` | number | Bottom padding in pixels. |
+| `paddingLeft` | number | Left padding in pixels. |
+| **Text (text components only)** | | |
+| `color` | string | Text color (solid or gradient string). |
+| `fontSize` | number | Font size in pixels. |
+| `fontFamily` | string | Font family (e.g. `'sans-serif'`). |
+| `fontWeight` | string | e.g. `'normal'`, `'bold'`. |
+| `fontStyle` | string | e.g. `'normal'`, `'italic'`. |
+| `textDecoration` | string | e.g. `'none'`, `'underline'`. |
+| `textAlign` | string | `'start'`, `'center'`, or `'end'`. |
+| `verticalAlign` | string | `'start'`, `'center'`, or `'end'`. |
+| `lineHeight` | number | Line height. |
+
 ---
 
 ## 10. Proxies API
