@@ -4,9 +4,7 @@ sidebar_position: 1
 
 # Attributes
 
-Attributes are the atomic particles of a ruleset. How you describe the characters, items and abilities of your game will all boil down to what attributes you assign these entities and how they vary.
-
-Attributes are variables, meaning they can change. When a character is introduced in Quest Bound, it will get its own copy of attributes. These attributes can be controlled and changed on that character’s sheet.
+Attributes are character variables, meaning they can change. When a character is introduced in Quest Bound, it will get its own copy of attributes. These attributes can be controlled and changed manually on that character’s sheet or through scripts.
 
 ## Types of Attributes
 

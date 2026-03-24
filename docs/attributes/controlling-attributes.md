@@ -8,8 +8,7 @@ When your players make a character from your game, that character gets a copy of
 
 ## Windows
 
-When a player makes a character, they construct their own character sheet by adding windows from the ruleset. Each window can include
-controls wired up to specific attributes.
+When a player makes a character, they construct their own character sheet by adding windows from the ruleset. Each window can include controls bound to individual attributes.
 
 ### Controlling Attributes
 

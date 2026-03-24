@@ -154,9 +154,9 @@ Range: 150 feet
 Area: 20-foot radius sphere
 ```
 
-## Actions and Automation (Coming Soon)
+## Actions and Automation
 
-Future versions of Quest Bound will support scripting, allowing actions to:
+Add scripts to actions to:
 
 - Automatically modify attributes
 - Roll dice and calculate results

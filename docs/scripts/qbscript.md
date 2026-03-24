@@ -8,39 +8,18 @@ A comprehensive guide to QBScript, the scripting language for automating Quest B
 
 ## Table of contents
 
-1. [Script types](#script-types)
-2. [Primitives](#1-primitives)
-3. [Math](#2-math)
-4. [Variables](#3-variables)
-5. [Logical operators](#4-logical-operators)
-6. [Conditions](#5-conditions)
-7. [Arrays](#6-arrays)
-8. [Loops](#7-loops)
-9. [Functions](#8-functions)
-10. [Accessors](#9-accessors)
-11. [Proxies API](#10-proxies-api)
-12. [Built-in functions](#built-in-functions)
-13. [Comments](#comments)
-
----
-
-## Script types
-
-Scripts can be attached to:
-
-- **Attributes** — Reactive scripts that recompute values when dependencies change; use `subscribe('…')`.
-- **Actions** — Event handlers: `on_activate()`.
-- **Items** — Event handlers: `on_activate`, `on_equip`, `on_unequip`, `on_consume`; end with `return`.
-- **Archetypes** — `on_add()` and `on_remove()` when the archetype is added/removed from a character.
-- **Game Manager** — Ruleset-level; can use `subscribe('Name')` and run when those attributes change for any character.
-- **Character Loader** — Runs once at character creation only, _before_ loading attribute defaults and archetype `on_add` script events. There can only be one character loader script per ruleset.
-- **Global** — Shared functions and variables for the ruleset.
-
-### Character Loader
-
-- **Execution order**: Right after every character is created. Character Creation → Character Loader → Default attribute values and all attribute scripts → Archetype `on_add` events.
-- **Context**: Character loader scripts have the same accessors as other scripts: `Owner` (attributes, actions, items, inventory, `Owner.archetypes`, `Owner.hasArchetype`, add/remove archetype). The full script runs once; there is no named event handler.
-- **Export/import**: Stored in the `character_loaders/` folder; if a ruleset already has a Character Loader, importing a second one is skipped with a warning.
+1. [Primitives](#1-primitives)
+2. [Math](#2-math)
+3. [Variables](#3-variables)
+4. [Logical operators](#4-logical-operators)
+5. [Conditions](#5-conditions)
+6. [Arrays](#6-arrays)
+7. [Loops](#7-loops)
+8. [Functions](#8-functions)
+9. [Accessors](#9-accessors)
+10. [Proxies API](#10-proxies-api)
+11. [Built-in functions](#built-in-functions)
+12. [Comments](#comments)
 
 ---
 
@@ -237,8 +216,8 @@ Accessing an index out of bounds (negative or ≥ length) causes a runtime error
 Objects are created with curly braces; keys are bare identifiers, values are expressions.
 
 ```javascript
-dice_mod = {source: 'Blinded', duration: 3}
-effect = {name: 'Poison', stats: {damage: 5, turns: 2}}
+dice_mod = { source: 'Blinded', duration: 3 };
+effect = { name: 'Poison', stats: { damage: 5, turns: 2 } };
 ```
 
 **Property access:**
@@ -250,19 +229,19 @@ Nested objects and objects in arrays work as expected: `effect.stats.turns`, `mo
 
 ### Array methods
 
-| Method                 | Return value       | Notes                                              |
-| ---------------------- | ------------------ | -------------------------------------------------- |
-| `list.count()`         | Number of elements | Same as length                                     |
-| `list.first()`         | First element      |                                                    |
-| `list.last()`          | Last element       |                                                    |
-| `list.push(item)`      | —                  | Adds item to the end (mutates)                     |
-| `list.pop()`           | Last element       | Removes and returns last (mutates)                 |
-| `list.random()`        | Random element     |                                                    |
-| `list.filter()`          | Same array         | No argument: keep only truthy values (mutates in place, returns the same array). |
+| Method                  | Return value       | Notes                                                                                                                                                                        |
+| ----------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `list.count()`          | Number of elements | number of items in array                                                                                                                                                     |
+| `list.first()`          | First element      |                                                                                                                                                                              |
+| `list.last()`           | Last element       |                                                                                                                                                                              |
+| `list.push(item)`       | —                  | Adds item to the end (mutates)                                                                                                                                               |
+| `list.pop()`            | Last element       | Removes and returns last (mutates)                                                                                                                                           |
+| `list.random()`         | Random element     |                                                                                                                                                                              |
+| `list.filter()`         | Same array         | No argument: keep only truthy values (mutates in place, returns the same array).                                                                                             |
 | `list.filter(filterFn)` | Same array         | Keep only elements for which `filterFn(item)` returns truthy (mutates in place, returns the same array). `filterFn` receives each element; return a truthy value to keep it. |
-| `list.filterEmpty()`    | New array          | Copy with non-empty values (excludes `''`, `null`) |
-| `list.sort()`           | Same array         | Sorts in place; default is string comparison       |
-| `list.sort(compareFn)`  | Same array         | Sorts in place using comparator                    |
+| `list.filterEmpty()`    | New array          | Copy with non-empty values (excludes `''`, `null`)                                                                                                                           |
+| `list.sort()`           | Same array         | Sorts in place; default is string comparison                                                                                                                                 |
+| `list.sort(compareFn)`  | Same array         | Sorts in place using comparator                                                                                                                                              |
 
 **Filter examples:**
 
@@ -446,37 +425,37 @@ Both work on `Owner` and on any character reference (e.g. from `Scene.characters
 
 **Available style names for `setComponentStyle(referenceLabel, styleProp, value)`:**
 
-| styleProp | Value type | Description |
-| --------- | ---------- | ----------- |
-| **Background & fill** | | |
-| `backgroundColor` | string | Solid color (e.g. `'red'`, `'#333'`) or `linear-gradient(angle deg, color1, color2)`. For gradients the runtime may use `background` internally. |
-| `background` | string | Use when the fill is a linear gradient (set by the editor when `backgroundColor` is gradient). |
-| **Appearance** | | |
-| `opacity` | number | Opacity 0–1. |
-| `outline` | string | Outline style. |
-| `outlineWidth` | number | Outline width in pixels. |
-| `outlineColor` | string | Outline color. |
-| **Border radius** | | |
-| `borderRadius` | string | Shorthand (e.g. `'8px'`). |
-| `borderRadiusTopLeft` | number | Top-left corner radius in pixels. |
-| `borderRadiusTopRight` | number | Top-right corner radius in pixels. |
-| `borderRadiusBottomLeft` | number | Bottom-left corner radius in pixels. |
-| `borderRadiusBottomRight` | number | Bottom-right corner radius in pixels. |
-| **Padding** | | |
-| `paddingTop` | number | Top padding in pixels. |
-| `paddingRight` | number | Right padding in pixels. |
-| `paddingBottom` | number | Bottom padding in pixels. |
-| `paddingLeft` | number | Left padding in pixels. |
-| **Text (text components only)** | | |
-| `color` | string | Text color (solid or gradient string). |
-| `fontSize` | number | Font size in pixels. |
-| `fontFamily` | string | Font family (e.g. `'sans-serif'`). |
-| `fontWeight` | string | e.g. `'normal'`, `'bold'`. |
-| `fontStyle` | string | e.g. `'normal'`, `'italic'`. |
-| `textDecoration` | string | e.g. `'none'`, `'underline'`. |
-| `textAlign` | string | `'start'`, `'center'`, or `'end'`. |
-| `verticalAlign` | string | `'start'`, `'center'`, or `'end'`. |
-| `lineHeight` | number | Line height. |
+| styleProp                       | Value type | Description                                                                                                                                      |
+| ------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Background & fill**           |            |                                                                                                                                                  |
+| `backgroundColor`               | string     | Solid color (e.g. `'red'`, `'#333'`) or `linear-gradient(angle deg, color1, color2)`. For gradients the runtime may use `background` internally. |
+| `background`                    | string     | Use when the fill is a linear gradient (set by the editor when `backgroundColor` is gradient).                                                   |
+| **Appearance**                  |            |                                                                                                                                                  |
+| `opacity`                       | number     | Opacity 0–1.                                                                                                                                     |
+| `outline`                       | string     | Outline style.                                                                                                                                   |
+| `outlineWidth`                  | number     | Outline width in pixels.                                                                                                                         |
+| `outlineColor`                  | string     | Outline color.                                                                                                                                   |
+| **Border radius**               |            |                                                                                                                                                  |
+| `borderRadius`                  | string     | Shorthand (e.g. `'8px'`).                                                                                                                        |
+| `borderRadiusTopLeft`           | number     | Top-left corner radius in pixels.                                                                                                                |
+| `borderRadiusTopRight`          | number     | Top-right corner radius in pixels.                                                                                                               |
+| `borderRadiusBottomLeft`        | number     | Bottom-left corner radius in pixels.                                                                                                             |
+| `borderRadiusBottomRight`       | number     | Bottom-right corner radius in pixels.                                                                                                            |
+| **Padding**                     |            |                                                                                                                                                  |
+| `paddingTop`                    | number     | Top padding in pixels.                                                                                                                           |
+| `paddingRight`                  | number     | Right padding in pixels.                                                                                                                         |
+| `paddingBottom`                 | number     | Bottom padding in pixels.                                                                                                                        |
+| `paddingLeft`                   | number     | Left padding in pixels.                                                                                                                          |
+| **Text (text components only)** |            |                                                                                                                                                  |
+| `color`                         | string     | Text color (solid or gradient string).                                                                                                           |
+| `fontSize`                      | number     | Font size in pixels.                                                                                                                             |
+| `fontFamily`                    | string     | Font family (e.g. `'sans-serif'`).                                                                                                               |
+| `fontWeight`                    | string     | e.g. `'normal'`, `'bold'`.                                                                                                                       |
+| `fontStyle`                     | string     | e.g. `'normal'`, `'italic'`.                                                                                                                     |
+| `textDecoration`                | string     | e.g. `'none'`, `'underline'`.                                                                                                                    |
+| `textAlign`                     | string     | `'start'`, `'center'`, or `'end'`.                                                                                                               |
+| `verticalAlign`                 | string     | `'start'`, `'center'`, or `'end'`.                                                                                                               |
+| `lineHeight`                    | number     | Line height.                                                                                                                                     |
 
 ---
 

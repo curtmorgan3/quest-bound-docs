@@ -13,7 +13,7 @@ Once a ruleset is opened in Quest Bound, _everything_ you see is viewed within t
 A ruleset is made of the following:
 
 - [Attributes](./attributes/attributes.md)
-  - The atoms of a ruleset. These are the variables that attach to all other entities
+  - The dynamic variables assigned to characters
   - Stats like hit points, age, durability, skill and experience can all be represented as attributes
   - Attributes can affect and be affected by other ruleset entities through scripts
 - [Archetypes](./archetypes.md)
@@ -33,10 +33,9 @@ A ruleset is made of the following:
 - [Pages](./pages.md)
   - Sets of windows that serve as templates for a character sheet page
 - [Documents](./documents.md)
-  - PDFs to be referenced by players from the character view
+  - PDFs or Markdown files to be referenced by players from the character view
 - [Scripts](./scripts/scripts.md)
   - Control the automation of your game through a programming interface
-  - Coming soon
 
 ## Creating a Ruleset
 

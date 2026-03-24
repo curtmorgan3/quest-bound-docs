@@ -6,7 +6,7 @@ sidebar_position: 17
 
 ## The Gist
 
-- If you observe or suspect a copyright violation is taking place on Quest Bound, report it to `@cap` on our [Discord Server](https://discord.gg/Zx2jR5Q3zN)
+- If you observe or suspect a copyright violation is taking place on Quest Bound, report it to `support@questbound.com`
 
 - A representative will respond to your inquiry and begin an investigation with due haste
 
