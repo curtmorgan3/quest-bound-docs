@@ -30,9 +30,9 @@ A comprehensive guide to QBScript, the scripting language for automating Quest B
 Numeric literals are written as integers or decimals. No type declaration is needed.
 
 ```javascript
-health = 100;
-ratio = 3.14;
-level = 5;
+health = 100
+ratio = 3.14
+level = 5
 ```
 
 ### Strings
@@ -40,9 +40,9 @@ level = 5;
 Use single or double quotes. Prefer double quotes when the text contains apostrophes.
 
 ```javascript
-name = 'Fireball';
-message = "Tabby's Tavern";
-empty = '';
+name = 'Fireball'
+message = "Tabby's Tavern"
+empty = ''
 ```
 
 **String methods:**
@@ -56,9 +56,9 @@ empty = '';
 **String interpolation:** Embed expressions in strings with `{{variable}}`. Interpolation uses the current script environment (variables in scope).
 
 ```javascript
-hp = 50;
-message = 'You have {{hp}} health';
-announce('Damage: {{damage}}');
+hp = 50
+message = 'You have {{hp}} health'
+announce('Damage: {{damage}}')
 ```
 
 ### Booleans
@@ -66,8 +66,8 @@ announce('Damage: {{damage}}');
 The literals `true` and `false` represent boolean values.
 
 ```javascript
-alive = true;
-hidden = false;
+alive = true
+hidden = false
 ```
 
 ### Truthiness
@@ -119,9 +119,9 @@ Division is always floating-point. For integer division, use `floor(a / b)`.
 Variables are created by assignment. No keyword (e.g. `let` or `var`) is used.
 
 ```javascript
-hit_points = Owner.Attribute('Hit Points').value;
-damage = 10;
-name = 'Fireball';
+hit_points = Owner.Attribute('Hit Points').value
+damage = 10
+name = 'Fireball'
 ```
 
 - Assignment creates the variable in the current scope if it does not exist, or updates it if it does.
@@ -195,9 +195,9 @@ else:
 Arrays are created with square brackets. Elements can be any type.
 
 ```javascript
-list = [];
-numbers = [1, 2, 3];
-mixed = [1, 'two', true];
+list = []
+numbers = [1, 2, 3]
+mixed = [1, 'two', true]
 ```
 
 ### Indexing
@@ -205,8 +205,8 @@ mixed = [1, 'two', true];
 Arrays are zero-based. Use `array[index]` to read an element.
 
 ```javascript
-first = numbers[0];
-last = numbers[2];
+first = numbers[0]
+last = numbers[2]
 ```
 
 Accessing an index out of bounds (negative or ≥ length) causes a runtime error.
@@ -216,8 +216,8 @@ Accessing an index out of bounds (negative or ≥ length) causes a runtime error
 Objects are created with curly braces; keys are bare identifiers, values are expressions.
 
 ```javascript
-dice_mod = { source: 'Blinded', duration: 3 };
-effect = { name: 'Poison', stats: { damage: 5, turns: 2 } };
+dice_mod = { source: 'Blinded', duration: 3 }
+effect = { name: 'Poison', stats: { damage: 5, turns: 2 } }
 ```
 
 **Property access:**

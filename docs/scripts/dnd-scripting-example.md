@@ -35,10 +35,10 @@ rollDisadvantage(dice):
 ### strength_modifier.qbs (Attribute: Strength Modifier)
 
 ```javascript
-subscribe('Strength');
+subscribe('Strength')
 
-str = Owner.Attribute('Strength').value;
-return calculateModifier(str);
+str = Owner.Attribute('Strength').value
+return calculateModifier(str)
 ```
 
 ### armor_class.qbs (Attribute: Armor Class)
@@ -80,27 +80,27 @@ return base_ac + dex_mod
 ### max_hp.qbs (Attribute: Max Hit Points)
 
 ```javascript
-subscribe('Constitution', 'Level', 'Class');
+subscribe('Constitution', 'Level', 'Class')
 
-con = Owner.Attribute('Constitution').value;
-con_mod = calculateModifier(con);
-level = Owner.Attribute('Level').value;
-class_name = Owner.Attribute('Class').value;
+con = Owner.Attribute('Constitution').value
+con_mod = calculateModifier(con)
+level = Owner.Attribute('Level').value
+class_name = Owner.Attribute('Class').value
 
 // Get hit die from chart
 hit_die = Ruleset.Chart('Classes')
   .rowWhere('Class', class_name)
-  .valueInColumn('Hit Die');
+  .valueInColumn('Hit Die')
 
 // First level gets max + con mod
 // Each additional level gets average + con mod
-first_level_hp = hit_die + con_mod;
-additional_levels = level - 1;
-avg_per_level = floor(hit_die / 2) + 1 + con_mod;
+first_level_hp = hit_die + con_mod
+additional_levels = level - 1
+avg_per_level = floor(hit_die / 2) + 1 + con_mod
 
-total = first_level_hp + additional_levels * avg_per_level;
+total = first_level_hp + additional_levels * avg_per_level
 
-return total;
+return total
 ```
 
 ## Action Scripts
